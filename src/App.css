@@ -102,6 +102,12 @@ nav.navbar {
   z-index: 9999;  /*high number to be always visible*/
   transition:  0.32s ease-in-out; /*for animations*/
 }
+.brand-hc {
+  font-family: 'Centra', sans-serif;
+  font-weight: 700;
+  font-size: 50px; /* Adjust size as needed */
+  color: #ffffff; /* Adjust color as needed */
+}
 nav.navbar.scrolled {
   padding: 0px 0;
   background-color: #121212; /*same as backgorund, once scrolled it goes away*/
