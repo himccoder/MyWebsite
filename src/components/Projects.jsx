@@ -33,6 +33,12 @@ export const Projects = () => {
       repo: "https://github.com/himccoder/MyWebsite"
     },
     {
+      title: "Neural Complete",
+      description: "Built a character-level RNN text generator using PyTorch and custom embeddings.",
+      imgUrl: NeuralComplete,
+      repo: "https://github.com/himccoder/Neural-Complete.git"
+    },
+    {
       title: "Data Storytelling",
       description: "Analyzed Washing State EV adoption using visualizations in matplotlib",
       imgUrl: DataStory,
