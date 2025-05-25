@@ -14,6 +14,7 @@ import portfolio from "../assets/img/Portfolioimg.png";
 import DataStory from "../assets/img/DataStroytellingimg.png";
 import tictactoe from "../assets/img/electictactoeimg.jpg";
 import StadiumManagement from "../assets/img/StadiumManagementimg.png";
+import NeuralComplete from "../assets/img/NeuralComplete.png";
 
 
 export const Projects = () => {
