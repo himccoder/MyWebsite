@@ -35,7 +35,7 @@ export const Projects = () => {
     },
     {
       title: "Neural Complete",
-      description: "Built a character-level RNN text generator using PyTorch and custom embeddings.",
+      description: "Character-level RNN text generator using PyTorch and custom embeddings.",
       imgUrl: NeuralComplete,
       repo: "https://github.com/himccoder/Neural-Complete.git"
     },
