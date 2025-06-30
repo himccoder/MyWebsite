@@ -65,7 +65,7 @@ export const Banner = () => {
                 <div>
                   <h1>{`Hi! I'm Himnish Chhabra`} </h1>
                   <h1><span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "AI/ML","Fintech", "Security" ]'><span className="wrap">{text}</span></span></h1>
-                    <p>University of Massachusetts, Amherst  |  Major in Computer Science  |  Minor in Mathematics</p>
+                    <p>University of Massachusetts, Amherst  |  B.S. with Major in Computer Science  |  Minor in Mathematics</p>
                     <div style={styles.container}>
                       <img src={UmassLogo} alt="UMass Amherst Seal" style={styles.logo} />
                       <img src={MSBKlogo} alt="MSBK Seal" style={styles.logo} />

@@ -1,8 +1,5 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Alert from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
@@ -16,8 +13,7 @@ export const Contact = () => {
   }
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState('Send');
-  const [status, setStatus] = useState({});
-  const [alert, setAlert] = useState({ show: false, severity: '', message: '' });
+  const [toast, setToast] = useState({ show: false, type: '', message: '' });
 
   const onFormUpdate = (category, value) => {
       setFormDetails({
@@ -30,7 +26,7 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    setAlert({ show: false, severity: '', message: '' });
+    setToast({ show: false, type: '', message: '' });
     
     try {
       // Set timeout for 10 seconds
@@ -53,12 +49,7 @@ export const Contact = () => {
       setFormDetails(formInitialDetails);
       
       if (result.code === 200) {
-        setAlert({
-          show: true,
-          severity: 'success',
-          message: 'Message sent successfully! I\'ll get back to you soon.'
-        });
-        setStatus({ success: true, message: 'Message sent successfully'});
+        showToast('success', 'Message sent successfully! I\'ll get back to you soon.');
       } else {
         throw new Error('Server error');
       }
@@ -66,25 +57,16 @@ export const Contact = () => {
       setButtonText("Send");
       
       if (error.message === 'timeout') {
-        setAlert({
-          show: true,
-          severity: 'warning',
-          message: 'The message is taking longer than usual to send. You can also reach me directly at: himnishchhabra@gmail.com'
-        });
+        showToast('warning', 'The message is taking longer than usual to send. You can also reach me directly at: himnishchhabra@gmail.com');
       } else {
-        setAlert({
-          show: true,
-          severity: 'warning',
-          message: 'Something went wrong. Please try again or contact me directly at: himnishchhabra@gmail.com'
-        });
+        showToast('error', 'Something went wrong. Please try again or contact me directly at: himnishchhabra@gmail.com');
       }
-      
-      setStatus({ success: false, message: 'Something went wrong, please try again later.'});
     }
   };
 
-  const handleCloseAlert = () => {
-    setAlert({ show: false, severity: '', message: '' });
+  const showToast = (type, message) => {
+    setToast({ show: true, type, message });
+    // Remove auto-dismiss - toast stays until user closes it
   };
 
   return (
@@ -171,35 +153,6 @@ export const Contact = () => {
                         <textarea rows="6" value={formDetails.message} placeholder="Message" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
                         <button type="submit"><span>{buttonText}</span></button>  {/**put inside span since it's a variable that changes from send to sending */}
                       </Col>
-                      {
-                        alert.show &&
-                        <Col size={12} className="px-1 mt-4">
-                          <div className="alert-wrapper">
-                            <Alert 
-                              severity={alert.severity}
-                              className="glassy-alert"
-                              action={
-                                <IconButton
-                                  aria-label="close"
-                                  color="inherit"
-                                  size="small"
-                                  onClick={handleCloseAlert}
-                                >
-                                  <CloseIcon fontSize="inherit" />
-                                </IconButton>
-                              }
-                            >
-                              {alert.message}
-                            </Alert>
-                          </div>
-                        </Col>
-                      }
-                      {
-                        status.message &&
-                        <Col>
-                          <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
-                        </Col>
-                      }
                     </Row>
                   </form>
                 </div>}
@@ -208,6 +161,21 @@ export const Contact = () => {
           </Row>
         </div>
       </Container>
+      
+      {/* Toast Notification */}
+      {toast.show && (
+        <div className="toast-notification">
+          <div className="toast-content">
+            <div className="toast-message">{toast.message}</div>
+            <button 
+              className="toast-close" 
+              onClick={() => setToast({ show: false, type: '', message: '' })}
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

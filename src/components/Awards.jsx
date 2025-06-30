@@ -23,7 +23,7 @@ export const Awards = () => {
                         >
                             <div className="ms-2 me-auto">
                             <div className="fw-bold">Dean's List</div>
-                            Named to the Dean's List in 4 out of 5 semesters at UMass Amherst for exceptional academic performance.
+                            Named to the Dean's List in 5 out of 6 semesters at UMass Amherst for exceptional academic performance.
                             </div>
                             <Badge bg="primary" pill>
                             2025
