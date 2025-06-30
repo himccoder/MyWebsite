@@ -1,34 +1,98 @@
-# Personal Portfolio Website in React
+#  Personal Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my personal website!
 
-Built using:
 
-- Front-end library: React
-- CSS framework: React-bootstrap
-- CSS animations library: Animate.css
+##  Tech Stack
 
-In the /personal-portfolio, you can run:
+### Frontend
+- **React 18** - JavaScript library for building user interfaces
+- **React Bootstrap** - CSS framework for responsive design
+- **Material-UI** - React components for experience timeline
+- **Animate.css** - CSS animation library
+- **Custom CSS** - Glassmorphism effects and animations
 
-### `npm start`
+### Backend
+- **Node.js** - Server runtime environment
+- **Express.js** - Web framework for handling contact form
+- **Nodemailer** - Email sending functionality
+- **CORS** - Cross-origin resource sharing
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Tools & Dependencies
+- **React Router** - Client-side routing
+- **React On Screen** - Scroll-triggered animations
+- **Custom Fonts** - Centra font family
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##  Running Site
 
-### `npm test`
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn package manager
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/himccoder/MyWebsite.git
+   cd MyWebsite
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
+   The app will open at [http://localhost:3000](http://localhost:3000)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Start the email server** (for contact form functionality)
+   ```bash
+   node server.js
+   ```
+   Email server runs on [http://localhost:5000](http://localhost:5000)
+
+##  Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── NavBar.jsx      # Navigation bar
+│   ├── Banner.jsx      # Hero section
+│   ├── Skills.jsx      # Skills showcase
+│   ├── Experience.jsx  # Professional timeline
+│   ├── Projects.jsx    # Project portfolio
+│   ├── ProjectCard.jsx # Individual project cards
+│   ├── Awards.jsx      # Awards and achievements
+│   ├── Contact.jsx     # Contact form
+│   └── Footer.jsx      # Footer section
+├── assets/             # Static assets
+│   ├── img/           # Images and logos
+│   ├── font/          # Custom fonts
+│   └── CS320_429__Team_M_-_Project_Documentation.pdf
+├── App.jsx            # Main app component
+├── App.css            # Global styles and glassmorphism
+└── index.js           # Entry point
+```
+
+### Build for Production
+```bash
+npm run build
+```
+
+
+##  Author
+
+**Himnish Chhabra**
+- Portfolio: [Live Demo](https://himccoder.github.io/MyWebsite/)
+- GitHub: [@himccoder](https://github.com/himccoder)
+- Email: himnishchhabra@gmail.com
+- LinkedIn: [Connect with me](https://linkedin.com/in/himnish-chhabra)
+
+
+
+---
+
+

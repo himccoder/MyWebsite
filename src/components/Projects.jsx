@@ -10,7 +10,7 @@ import background from "../assets/img/banner2Portfolio.jpg";
 import tbdproj from "../assets/img/TBD.jpg";
 import pdf from "../assets/CS320_429__Team_M_-_Project_Documentation.pdf";
 import ttproj from "../assets/img/TicketTradingimg.png";
-import portfolio from "../assets/img/Portfolioimg.png";
+import portfolio from "../assets/img/PortfolioThumbnailJune.png";
 import DataStory from "../assets/img/DataStroytellingimg.png";
 import tictactoe from "../assets/img/electictactoeimg.jpg";
 import StadiumManagement from "../assets/img/StadiumManagementimg.png";
