@@ -104,7 +104,7 @@ export const Experience = () => {
                     <TimelineContent sx={{ py: '12px', px: 2 }}>
                       <div className="experience-card">
                         <Typography variant="h6" component="div" className="experience-title">
-                          Summer Conference Housing Staff
+                          Summer Conference Housing Crew
                         </Typography>
                         <Typography variant="subtitle1" className="experience-company">
                           UMass Summer Conference Housing
