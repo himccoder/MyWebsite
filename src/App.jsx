@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from "./components/NavBar";  //named funtion so {fn}
 import { Banner } from "./components/Banner"; //space banner
 import { Skills } from "./components/Skills";
+import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
@@ -16,6 +17,7 @@ function App() {
       <NavBar />
       <Banner />
       <Skills />
+      <Experience />
       <Projects />
       <Awards/>
       <Contact />

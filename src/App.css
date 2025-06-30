@@ -1,4 +1,6 @@
-/************ Custom Font ************/
+/************ Modern Glassmorphism Font ************/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @font-face {
 	font-family: Centra;
 	src: url('./assets/font/CentraNo2-Bold.ttf');
@@ -32,26 +34,42 @@ html {
 body {
   font-weight: 400; /*Normal value*/
   overflow-x: hidden; 
-  /*You can control both axes together:
-  E.g.
-  .container {
-      overflow-x: auto;
-      overflow-y: hidden;
-  }
-What this code does:
-  Horizontal scroll appears only if needed.
-  Vertical scroll is disabled
-  */
   position: relative;
-  background-color: #121212 !important;  /*say !important becasue sometimes bootstrap color overwrites*/
-  color: #fff !important; /*color of text (under body)*/
-  font-family: 'Centra', sans-serif !important;
+  /* Darker to lighter blue gradient with glass-optimized glow */
+  background: 
+    radial-gradient(circle at 20% 10%, rgba(0, 80, 200, 0.4) 0%, rgba(0, 123, 255, 0.15) 30%, transparent 60%),
+    radial-gradient(circle at 80% 30%, rgba(0, 100, 220, 0.35) 0%, rgba(0, 191, 255, 0.12) 30%, transparent 60%),
+    radial-gradient(circle at 30% 60%, rgba(15, 90, 210, 0.3) 0%, rgba(30, 144, 255, 0.1) 30%, transparent 60%),
+    radial-gradient(circle at 70% 80%, rgba(0, 70, 180, 0.35) 0%, rgba(0, 123, 255, 0.12) 30%, transparent 60%),
+    radial-gradient(circle at 10% 90%, rgba(0, 110, 240, 0.3) 0%, rgba(0, 191, 255, 0.1) 30%, transparent 60%),
+    linear-gradient(180deg, #020b1a 0%, #051626 10%, #0a1e3a 30%, #0f2847 50%, #1a3a5c 70%, #0a1e3a 90%, #061220 100%) !important;
+  background-attachment: fixed;
+  color: #fff !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* Unified texture overlay for entire site */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+  background-size: 20px 20px;
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: -1;
 }
 
 h1, h2, h3, h4, h5, h6 {  /*for all headers*/
   margin: 0;
   padding: 0;
   line-height: normal; /*controls the vertical spacing between lines of text*/
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: -0.02em;
 }
 
 p, a, li, button, ul {
@@ -95,33 +113,49 @@ p.danger {
 }
 /************ Navbar CSS  ************/
 nav.navbar {
-  padding: 18px 0;
+  padding: 20px 0;
   position: fixed; /*Always fixed and visible at top*/
   width: 100%;
   top: 0;  /*Nothing above navbar*/
   z-index: 9999;  /*high number to be always visible*/
-  transition:  0.32s ease-in-out; /*for animations*/
+  transition: all 0.4s ease-in-out; /*for animations*/
+  /* Premium Ultra Glassy Navbar */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 40px rgba(0, 0, 0, 0.1),
+    0 1px 0 rgba(255, 255, 255, 0.15) inset,
+    0 0 60px rgba(0, 123, 255, 0.05);
 }
 .brand-hc {
-  font-family: 'Centra', sans-serif;
+  font-family: 'Centra', sans-serif !important;
   font-weight: 700;
   font-size: 50px; /* Adjust size as needed */
   color: #ffffff; /* Adjust color as needed */
 }
 nav.navbar.scrolled {
-  padding: 0px 0;
-  background-color: #121212; /*same as backgorund, once scrolled it goes away*/
+  padding: 15px 0;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  box-shadow: 
+    0 8px 50px rgba(0, 0, 0, 0.15),
+    0 1px 0 rgba(255, 255, 255, 0.2) inset,
+    0 0 80px rgba(0, 123, 255, 0.08);
 }
 nav.navbar a.navbar-brand {
     width: 9%;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
-  font-weight: 400;
+  font-weight: 500;
   color: #fff !important;
-  letter-spacing: 0.8px;
+  letter-spacing: -0.01em;
   padding: 0 25px;
   font-size: 18px;
   opacity: 0.75; /*default*/
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
@@ -171,36 +205,45 @@ span.navbar-text {
 .navbar-text button {   /*For let's connect button-taking us to contact form*/
   font-weight: 700; 
   color: #fff;
-  border: 1px solid #fff; /*border to indicate it's a button because it's transparent*/
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 18px 34px;
   font-size: 18px;
   margin-left: 18px;
 	position: relative;
-	background-color: transparent;
-	transition: 0.3s ease-in-out;
+	border-radius: 25px;
+	transition: all 0.3s ease-in-out;
+	box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .navbar-text button span {
   z-index: 1;
 }
 .navbar-text button::before {
   content: "";
-  width: 0%;
+  width: 100%;
   height: 100%;
   position: absolute;
-  background-color: #fff;
+  background: transparent;
   left: 0;
   top: 0;
   z-index: -1;
-  transition: 0.3s ease-in-out;
+  border-radius: 25px;
+  transition: all 0.3s ease-in-out;
 }
 .navbar-text button:hover {
-  color: #121212;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(0, 123, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 30px rgba(0, 123, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 .navbar-text button:hover::before {
-	content: "";
-	width: 100%;
-	height: 100%;
-	position: absolute;
+	background: rgba(0, 123, 255, 0.1);
 }
 nav.navbar .navbar-toggler:active,
 nav.navbar .navbar-toggler:focus {
@@ -252,36 +295,28 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
   margin-top: 0;
   padding: 150px 50px 100px 50px;
-  /*background-image: url('./assets/img/banner-bg.png'); /**space image with blue light*/
-  background-image: url('./assets/img/banner2Portfolio.jpg');
-  background-position: top center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  /* Transparent to show unified body background */
+  background: transparent;
+  position: relative;
 }
-.banner .tagline { /**about About me text */
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  padding: 8px 10px;
-  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  font-size: 20px;
-  margin-bottom: 16px;
-  display: inline-block;
-}
+
+/* Tagline removed - no longer used */
 .banner h1 {
   font-size: 65px;
   font-weight: 700;
-  letter-spacing: 0.8px;
-  line-height: 1;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   margin-bottom: 20px;
   display: block;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 .banner p {
-  color: #B8B8B8;
+  color: #ffffff;
   font-size: 18px;
-  letter-spacing: 0.8px;
+  letter-spacing: -0.01em;
   line-height: 1.5em;
   width: 96%;
+  font-weight: 400;
 }
 .banner img{
   
@@ -314,22 +349,101 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 **/
 
+/* Premium Ultra Glassy Banner Container */
+.banner-glass-container {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 36px;
+  padding: 65px 45px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.banner-glass-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(0, 123, 255, 0.15), 
+    rgba(0, 191, 255, 0.1), 
+    rgba(30, 144, 255, 0.2));
+  border-radius: 34px;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(5px);
+}
+
+.banner-glass-container:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 
+    0 40px 90px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 0 0 1px rgba(20, 35, 85, 0.08);
+  border-color: rgba(20, 35, 85, 0.2);
+}
+
 
 /************ Skills CSS ************/
 .skill {
   padding: 0 0 50px 0;
   position: relative; /*main container*/
+  /* Transparent to show unified body background */
+  background: transparent;
 }
+
 .skill-bx {
-  background: #151515; /*above gradient image*/
-  border-radius: 64px;
-  text-align: center;
-  padding: 60px 50px;
-  margin-top: -60px; /*push out at the top*/
+    /* Ultra Glassy Skills Container */
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 32px;
+    text-align: center;
+    padding: 60px 25px; /* Optimized padding for new layout */
+    margin-top: -60px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 
+      0 20px 50px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.skill-bx::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(0, 123, 255, 0.2), 
+    rgba(0, 191, 255, 0.15), 
+    rgba(30, 144, 255, 0.25));
+  border-radius: 34px;
+  z-index: -1;
+  opacity: 0.7;
+  filter: blur(6px);
+}
+
+.skill-bx:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 28px 70px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 .skill h2 {
 	font-size: 45px;
 	font-weight: 700;
+	letter-spacing: -0.02em;
 }
 .skill p {
     color: #B8B8B8;
@@ -357,39 +471,326 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-repeat: no-repeat; /* Prevent the image from repeating */
 }
 
-/* Parent container for the skill items */
-.custom-listgroup {
+/* === CLEAN SKILLS SECTION CSS === */
+
+/* Main skills container */
+.skills-container {
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* Individual skill category */
+.skills-category {
+  margin-bottom: 40px;
+}
+
+/* Category titles */
+.category-title {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: left;
+  letter-spacing: 0.5px;
+}
+
+/* Skills grid for each category */
+.skills-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* Space between items */
+  gap: 18px;
+  width: 100%;
+  justify-content: flex-start;
 }
-/* List item styling */
-.custom-listgroup-item .list-group-item {
-  background: white !important;  /* Grey background */
-  border:20px solid linear-gradient(45deg, #6a0dad, #9b59b6) !important; /* Gradient Purple */  
-  color: #333 !important;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 10px !important;  /*rounded edges*/
+
+/* Individual skill item container */
+.skill-item {
+  width: 155px;
+  flex: 0 0 155px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Skill content with glassmorphism */
+.skill-content {
+  /* Premium Glassmorphism */
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 22px;
+  
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 110px;
+  padding: 14px 10px;
+  
+  /* Typography */
+  color: #1e2a5a;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+  
+  /* Enhanced Effects */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+}
+
+/* Premium skill content hover effects */
+.skill-content:hover {
+  background: rgba(255, 255, 255, 0.55);
+  transform: translateY(-10px) scale(1.08);
+  border-color: rgba(20, 35, 85, 0.4);
+  box-shadow: 
+    0 20px 50px rgba(20, 35, 85, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 0 0 1px rgba(20, 35, 85, 0.15);
+  color: #1a2244;
+}
+
+/* Skill name text */
+.skill-name {
+  margin-bottom: 8px;
+  line-height: 1.2;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Logo container */
+.skill-logo-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column; /* Stack content vertically */
-  
-  min-width: 145px; 
-  min-height: 95px;
-}
-
-/* Ensure logos are centered and placed below text */
-.skill-logo {
-  width: 40px; /* Adjust size as needed */
+  width: 100%;
   height: 40px;
-  margin-top: 5px; /* Adds spacing between text and logo */
 }
 
-.text-start {
-  margin-bottom:30px;
-  margin-top: 30px;
+/* Logo styling */
+.skill-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  filter: brightness(1.1) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+/* Logo hover effects */
+.skill-content:hover .skill-logo {
+  filter: brightness(1.3) contrast(1.2);
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skills-grid {
+    gap: 15px;
+  }
+  
+  .skill-item {
+    width: 135px;
+    flex: 0 0 135px;
+  }
+  
+  .skill-content {
+    height: 100px;
+    font-size: 14px;
+    padding: 12px 8px;
+  }
+  
+  .skill-name {
+    font-size: 14px;
+  }
+  
+  .skill-logo {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    gap: 12px;
+  }
+  
+  .skill-item {
+    width: 115px;
+    flex: 0 0 115px;
+  }
+  
+  .skill-content {
+    height: 95px;
+    font-size: 13px;
+    padding: 10px 6px;
+  }
+  
+  .skill-name {
+    font-size: 13px;
+  }
+  
+  .skill-logo {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .category-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+}
+
+/* === EXPERIENCE SECTION CSS === */
+
+/* Experience section - matching project section style */
+.experience {
+  padding: 80px 0;
+  position: relative;
+  background: transparent;
+}
+
+.experience h2 {
+  font-size: 45px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+/* Timeline container */
+.timeline-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Premium experience cards - enhanced glassmorphism */
+.experience-card {
+  background: rgba(255, 255, 255, 0.32) !important;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 26px !important;
+  padding: 26px;
+  text-align: left;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+  position: relative;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(0, 123, 255, 0.15), 
+    rgba(0, 191, 255, 0.1), 
+    rgba(30, 144, 255, 0.2));
+  border-radius: 26px;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(4px);
+}
+
+.experience-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 
+    0 35px 80px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 0 1px rgba(20, 35, 85, 0.1) !important;
+  background: rgba(255, 255, 255, 0.42) !important;
+  border-color: rgba(20, 35, 85, 0.3) !important;
+}
+
+/* Experience text styling - glassmorphism white text */
+.experience-title {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  margin-bottom: 8px !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.experience-company {
+  color: rgba(20, 35, 85, 1.0) !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  margin-bottom: 6px !important;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
+}
+
+.experience-details {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  margin-bottom: 12px !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.experience-description {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive experience styling */
+@media (max-width: 768px) {
+  .experience {
+    padding: 60px 0;
+  }
+  
+
+  
+  .experience h2 {
+    font-size: 35px;
+    margin-bottom: 30px;
+  }
+  
+  .experience-card {
+    padding: 16px;
+  }
+  
+  .experience-title {
+    font-size: 16px !important;
+  }
+  
+  .experience-company {
+    font-size: 14px !important;
+  }
+  
+  .experience-details {
+    font-size: 12px !important;
+  }
+  
+  .experience-description {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience h2 {
+    font-size: 28px;
+  }
+  
+  .timeline-container {
+    max-width: 100%;
+  }
 }
 
 
@@ -401,12 +802,15 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .project {
   padding: 80px 0;
   position: relative;
-  background-color: #121212;
+  /* Transparent to show unified body background */
+  background: transparent;
 }
+
 .project h2 {
 	font-size: 45px;
 	font-weight: 700;
   text-align: center;
+  letter-spacing: -0.02em;
 }
 .project p {
   color: #B8B8B8;
@@ -512,93 +916,238 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   z-index: -4;
 }
 
-/* cards here */
-
-.card {
-  width: 300px; /* Fixed width */
-  height: 350px; /* Fixed height */
-  background: #303030 !important;
-  color: white;
-  border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  overflow: hidden;
-  text-align: center;
+/* Project Card Glassmorphism Styling */
+.project-card-col {
+  margin-bottom: 30px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
-}
-.card-image {
+.project-glass-card {
+  /* Premium Ultra Glassy Project Cards */
+  background: rgba(255, 255, 255, 0.32) !important;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 26px !important;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   width: 100%;
-  height: px;  /* Shorter height */
-  object-fit: cover; /* Keeps aspect ratio */
-  border-radius: 10px;
+  min-height: 450px;
+  max-width: 350px;
+  margin: 0 auto;
+  position: relative;
 }
 
-.card-body {
-  text-align: center;
-  padding: 5px !important;
-  flex-grow: 1;
+.project-glass-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(0, 123, 255, 0.15), 
+    rgba(0, 191, 255, 0.1), 
+    rgba(30, 144, 255, 0.2));
+  border-radius: 26px;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(4px);
 }
 
-.card-title {
-  font-size: 25px !important;
-  font-weight: bold;
-  margin-bottom: 10px!important;
-  color: white !important; /* Title in white */
-  margin-top: 10px !important;
+.project-glass-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 
+    0 35px 80px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 0 1px rgba(20, 35, 85, 0.1) !important;
+  background: rgba(255, 255, 255, 0.42) !important;
+  border-color: rgba(20, 35, 85, 0.3) !important;
 }
 
-.card-text {
-  font-size: 12px;
-  color: white !important;
-}
-.card-content {
-  flex-grow: 1 !important; /* Allows content to expand */
-  font-size: 1rem;
-  margin: 10px 0;
-  overflow: hidden; /* Prevents overflow issues */
+.project-image-container {
+  height: 200px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  position: relative;
 }
 
-.card .btn {
-  background: linear-gradient(135deg, #4c75d6, #6a5acd);
-  border: none;
-  color: white;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 25px;
-  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
-  margin-bottom: 15px;
+.project-card-image {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.3s ease;
 }
 
-.card .btn:hover {
-  background: linear-gradient(135deg, #5b85e5, #7b68ee);
+.project-glass-card:hover .project-card-image {
   transform: scale(1.05);
 }
 
-
-/************ Projects Css ************/
-.contact {
-  background: linear-gradient(90.21deg, #3653aa -5.91%, #191994 111.58%);
-  padding: 60px 0 200px 0;
+.project-card-title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 1.2rem !important;
+  margin-bottom: 15px !important;
+  text-align: center;
 }
+
+.project-card-description {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  text-align: center;
+  min-height: 60px;
+}
+
+.project-card-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+.project-card-buttons .btn {
+  border-radius: 25px !important;
+  padding: 8px 20px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.project-card-buttons .btn-primary {
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #fff !important;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.project-card-buttons .btn-primary:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-color: rgba(0, 123, 255, 0.5) !important;
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 35px rgba(0, 123, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.project-card-buttons .btn-secondary {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #fff !important;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+.project-card-buttons .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(0, 191, 255, 0.4) !important;
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 35px rgba(0, 191, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Legacy card styles removed - using glassmorphism project cards instead */
+
+
+/************ Contact Css ************/
+.contact {
+  padding: 60px 0 200px 0;
+  position: relative;
+  /* Transparent to show unified body background */
+  background: transparent;
+}
+
+/* Premium Ultra Glassy Contact Container */
+.contact-glass-container {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  border-radius: 36px;
+  padding: 65px 45px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 30px 70px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-glass-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(0, 123, 255, 0.15), 
+    rgba(0, 191, 255, 0.1), 
+    rgba(30, 144, 255, 0.2));
+  border-radius: 34px;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(5px);
+}
+
+.contact-glass-container:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 
+    0 40px 90px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 0 0 1px rgba(20, 35, 85, 0.08);
+  border-color: rgba(20, 35, 85, 0.2);
+}
+
 .contact img {
   width: 92%;
+}
+
+/* Envelope Icon Animation */
+.envelope-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.envelope-icon {
+  width: 92%;
+  height: auto;
+  transition: transform 0.8s ease-in-out;
+  filter: drop-shadow(0 10px 30px rgba(0, 123, 255, 0.3));
+}
+
+.envelope-container:hover .envelope-icon {
+  transform: rotate(15deg) scale(1.05);
+  filter: drop-shadow(0 15px 40px rgba(0, 191, 255, 0.5));
 }
 .contact h2 {
 	font-size: 45px;
 	font-weight: 700;
   margin-bottom: 30px;
+  letter-spacing: -0.02em;
 }
 .contact form input, .contact form textarea {
   width: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 20px;
   color: #fff;
   margin: 0 0 8px 0;
@@ -607,10 +1156,17 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 18px;
   letter-spacing: 0.8px;
   transition: 0.3s ease-in-out;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 .contact form input:focus, .contact form textarea:focus {
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.85);
   color: #121212;
+  border-color: rgba(0, 123, 255, 0.6);
+  box-shadow: 
+    0 12px 35px rgba(0, 123, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 .contact form input::placeholder, .contact form textarea::placeholder {
   font-size: 16px;
@@ -623,52 +1179,101 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .contact form button {
   font-weight: 700;
-  color: #000;
-  background-color: #fff;
-  padding: 14px 48px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 16px 48px;
   font-size: 18px;
   margin-top: 25px;
-  border-radius: 0;
+  border-radius: 25px;
   position: relative;
-  transition: 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 .contact form button span {
   z-index: 1;
   position: relative;
 }
 .contact form button:hover {
-  color: #fff;
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(0, 123, 255, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 35px rgba(0, 123, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 .contact form button::before {
   content: "";
-  background: #121212;
-  width: 0;
+  background: transparent;
+  width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 0;
   transition: 0.3s ease-in-out;
+  border-radius: 25px;
 }
 .contact form button:hover::before {
-  width: 100%;
+  background: rgba(0, 123, 255, 0.1);
 }
 
 /************ Footer Css ************/
 .footer {
   padding: 0 0 50px 0;
-  background-image: url('./assets/img/footer-bg.png');
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative;
+  /* Transparent to show unified body background */
+  background: transparent;
 }
+
+/* Premium Ultra Glassy Footer Container */
+.footer-glass-container {
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 34px;
+  padding: 55px 45px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-glass-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    rgba(0, 123, 255, 0.15), 
+    rgba(0, 191, 255, 0.1), 
+    rgba(30, 144, 255, 0.2));
+  border-radius: 34px;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(5px);
+}
+
+.footer-glass-container:hover {
+  transform: translateY(-6px) scale(1.005);
+  box-shadow: 
+    0 35px 80px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 0 0 1px rgba(20, 35, 85, 0.06);
+  border-color: rgba(20, 35, 85, 0.15);
+}
+
 .newsletter-bx {
-  background: #FFFFFF;
-  border-radius: 55px;
-  color: #121212;
-  padding: 85px 125px;
-  margin-bottom: 80px;
-  margin-top: -122px;
+  display: none; /* Hide the newsletter white box */
 }
 .newsletter-bx h3 {
   font-weight: 700;
@@ -733,57 +1338,341 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-top: 20px;
 }
 
-/******* Awards *********/
+/******* Awards Glassmorphism *********/
 
 /* Awards Section Styling */
 .Awards {
   padding: 60px 0;
-  background-color: #121212; /* Dark background */
-  
+  position: relative;
+  /* Transparent to show unified body background */
+  background: transparent;
 }
 
 .award-bx {
-  background: #1e1e1e; /* Slightly lighter dark box */
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+  /* Simple container - no glassmorphism (consistent with projects) */
+  padding: 40px 35px;
   text-align: left;
 }
 
 .award-bx h2 {
   color: #ffffff;
   font-size: 45px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align:center !important;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center !important;
+  text-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+  letter-spacing: -0.02em;
 }
-
 
 .award-bx .list-group {
   background: transparent;
 }
 
 .award-bx .list-group-item {
-  background: #2a2a2a;
-  color: #ffffff;
-  font-size: 1.1rem ;
-  border: none;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  /* Premium Ultra Glassy Award Items */
+  background: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  color: #ffffff !important;
+  font-size: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 22px !important;
+  margin-bottom: 18px !important;
+  padding: 24px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.award-bx .list-group-item:hover {
+  background: rgba(255, 255, 255, 0.42) !important;
+  transform: translateX(12px) translateY(-3px);
+  border-color: rgba(20, 35, 85, 0.4) !important;
+  box-shadow: 
+    0 20px 50px rgba(20, 35, 85, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 0 0 1px rgba(20, 35, 85, 0.1);
+}
+
+.award-bx .list-group-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, 
+    rgba(0, 123, 255, 0.8), 
+    rgba(0, 191, 255, 0.6));
+  border-radius: 0 2px 2px 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.award-bx .list-group-item:hover::before {
+  opacity: 1;
 }
 
 .award-bx .fw-bold {
-  font-size: 1.1rem;
-  color: #f8f8f8;
+  font-size: 1.2rem !important;
+  color: #ffffff !important;
   text-align: left;
-  margin-top: 5px;
-  margin-bottom:5px;
+  margin-top: 0 !important;
+  margin-bottom: 8px !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .award-bx .badge {
-  background: #ffcc00 !important; /* Gold badge color */
-  font-size: 0.9rem;
-  padding: 8px 12px;
-  color:black !important;
+  /* Ultra Glassy Date Badge */
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  font-size: 0.9rem !important;
+  padding: 12px 18px !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 25px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s ease !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+.award-bx .badge:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-color: rgba(0, 123, 255, 0.5) !important;
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 
+    0 12px 30px rgba(0, 123, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Seamless Section Flow - Premium Design */
+.banner, .skill, .experience, .project, .Awards, .contact, .footer {
+  border: none !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Create seamless transitions between sections */
+.skill {
+  margin-top: -50px !important;
+  padding-top: 100px !important;
+}
+
+.experience {
+  margin-top: -50px !important;
+  padding-top: 130px !important;
+}
+
+.project {
+  margin-top: -50px !important;
+  padding-top: 130px !important;
+}
+
+.Awards {
+  margin-top: -50px !important;
+  padding-top: 110px !important;
+}
+
+.contact {
+  margin-top: -50px !important;
+  padding-top: 110px !important;
+}
+
+.footer {
+  margin-top: -50px !important;
+  padding-top: 50px !important;
+}
+
+/* Remove any background image conflicts for seamless flow */
+.background-image-left,
+.background-image-right {
+  display: none !important;
+}
+
+/* Material UI Timeline custom styles - clean and minimal */
+.MuiTimelineItem-root .MuiTimelineDot-root {
+  background: #fff !important;
+  border: 3px solid rgba(20, 35, 85, 1.0) !important;
+  box-shadow: 0 4px 12px rgba(20, 35, 85, 0.25) !important;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+}
+
+.MuiTimelineItem-root .MuiTimelineDot-root:hover {
+  transform: scale(1.15) !important;
+  box-shadow: 0 8px 25px rgba(20, 35, 85, 0.35) !important;
+  border-color: rgba(20, 35, 85, 0.8) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.MuiTimelineItem-root .MuiTimelineDot-root .MuiSvgIcon-root {
+  color: rgba(20, 35, 85, 1.0) !important;
+  font-size: 20px !important;
+}
+
+.MuiTimelineConnector-root {
+  background: rgba(255, 255, 255, 0.6) !important;
+  width: 2px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Material UI Timeline text styling - white for glassmorphism */
+.MuiTimelineOppositeContent-root {
+  color: #fff !important;
+}
+
+/* Alert Wrapper for Better Positioning */
+.alert-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+  position: relative;
+}
+
+/* Glassmorphism Alert Styling */
+.glassy-alert.MuiAlert-root {
+  background: rgba(255, 255, 255, 0.28) !important;
+  backdrop-filter: blur(35px) !important;
+  -webkit-backdrop-filter: blur(35px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 28px !important;
+  color: #ffffff !important;
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  margin: 0 !important;
+  padding: 18px 24px !important;
+  min-width: 300px;
+  max-width: 500px;
+  width: fit-content;
+  animation: slideInDown 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  z-index: 1000;
+}
+
+.glassy-alert.MuiAlert-root:hover {
+  background: rgba(255, 255, 255, 0.38) !important;
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Alert Icon Styling */
+.glassy-alert.MuiAlert-root .MuiAlert-icon {
+  color: #ffffff !important;
+  font-size: 22px !important;
+  margin-right: 12px !important;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* Alert Message Text */
+.glassy-alert.MuiAlert-root .MuiAlert-message {
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0.3px !important;
+}
+
+/* Alert Close Button */
+.glassy-alert.MuiAlert-root .MuiAlert-action .MuiIconButton-root {
+  color: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 50% !important;
+  padding: 8px !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.glassy-alert.MuiAlert-root .MuiAlert-action .MuiIconButton-root:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Success Alert Specific Styling */
+.glassy-alert.MuiAlert-standardSuccess {
+  border-left: 4px solid rgba(76, 175, 80, 0.8) !important;
+}
+
+.glassy-alert.MuiAlert-standardSuccess .MuiAlert-icon {
+  color: rgba(76, 175, 80, 1) !important;
+}
+
+/* Warning Alert Specific Styling */
+.glassy-alert.MuiAlert-standardWarning {
+  border-left: 4px solid rgba(255, 152, 0, 0.8) !important;
+}
+
+.glassy-alert.MuiAlert-standardWarning .MuiAlert-icon {
+  color: rgba(255, 152, 0, 1) !important;
+}
+
+/* Slide in animation for alerts */
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.9);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive Alert Styling */
+@media (max-width: 768px) {
+  .glassy-alert.MuiAlert-root {
+    min-width: 280px !important;
+    max-width: 350px !important;
+    padding: 16px 20px !important;
+    font-size: 14px !important;
+    border-radius: 24px !important;
+  }
+  
+  .alert-wrapper {
+    margin: 15px 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .glassy-alert.MuiAlert-root {
+    min-width: 260px !important;
+    max-width: 320px !important;
+    padding: 14px 18px !important;
+    border-radius: 20px !important;
+  }
+  
+  .glassy-alert.MuiAlert-root .MuiAlert-message {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
 }
 

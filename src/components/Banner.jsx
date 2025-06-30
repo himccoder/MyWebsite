@@ -57,32 +57,33 @@ export const Banner = () => {
   return (
     <section className="banner" id="home">
       <Container>  {/*Taking container from bootstrap*/}
-        <Row className="align-items-center">  {/*bootstrap takes care of styling. The <Col> component is used to define a column inside a grid system, which is responsive and automatically adjusts its layout based on the viewport size (like on small, medium, or large screens).*/}
-          <Col xs={12} md={6} xl={7}> {/**xs={12} md={6} xl={7} */}
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div>
-                <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Himnish Chhabra`} </h1>
-                <h1><span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "AI/ML","Fintech", "Security" ]'><span className="wrap">{text}</span></span></h1>
-                  <p>Student at University of Massachusetts, Amherst | Major in Computer Science | Minor in Mathematics</p>
-                  <div style={styles.container}>
-                    <img src={UmassLogo} alt="UMass Amherst Seal" style={styles.logo} />
-                    <img src={MSBKlogo} alt="MSBK Seal" style={styles.logo} />
-                  </div>{/**ArrowRightCircle react bootstrap icon - arrow icon ---Need to replace console.log with a google form or something, some functionality */}
-              </div>}
-            </TrackVisibility>
-          </Col>
-          <Col xs={9} md={3} xl={4}>  {/**Anmated image */}
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <div >
-                  
-                  <img src={headerImg} alt="Header Img" />
+        <div className="banner-glass-container">
+          <Row className="align-items-center">  {/*bootstrap takes care of styling. The <Col> component is used to define a column inside a grid system, which is responsive and automatically adjusts its layout based on the viewport size (like on small, medium, or large screens).*/}
+            <Col xs={12} md={6} xl={7}> {/**xs={12} md={6} xl={7} */}
+              <TrackVisibility>
+                {({ isVisible }) =>
+                <div>
+                  <h1>{`Hi! I'm Himnish Chhabra`} </h1>
+                  <h1><span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "AI/ML","Fintech", "Security" ]'><span className="wrap">{text}</span></span></h1>
+                    <p>University of Massachusetts, Amherst  |  Major in Computer Science  |  Minor in Mathematics</p>
+                    <div style={styles.container}>
+                      <img src={UmassLogo} alt="UMass Amherst Seal" style={styles.logo} />
+                      <img src={MSBKlogo} alt="MSBK Seal" style={styles.logo} />
+                    </div>{/**ArrowRightCircle react bootstrap icon - arrow icon ---Need to replace console.log with a google form or something, some functionality */}
                 </div>}
-            </TrackVisibility>
-          </Col>
-        </Row>
+              </TrackVisibility>
+            </Col>
+            <Col xs={9} md={3} xl={4}>  {/**Anmated image */}
+              <TrackVisibility>
+                {({ isVisible }) =>
+                  <div >
+                    
+                    <img src={headerImg} alt="Header Img" />
+                  </div>}
+              </TrackVisibility>
+            </Col>
+          </Row>
+        </div>
       </Container>
     </section>
   )
@@ -96,9 +97,10 @@ const styles = {
     display: "flex",
     alignItems: "center", // Aligns images vertically
     gap: "20px", // Adds spacing between logos
+    marginTop: "30px", // Move logos lower
   },
   logo: {
-    width: "100px", // Adjust size as needed
+    width: "130px", // Made bigger for better visibility
     height: "auto",
   },
 };
