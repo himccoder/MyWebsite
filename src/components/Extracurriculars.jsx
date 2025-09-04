@@ -21,7 +21,7 @@ export const Extracurriculars = () => {
                         </ListGroup.Item>
                         <ListGroup.Item as="li" className="d-flex justify-content-between align-items-start">
                             <div className="ms-2 me-auto">
-                            <div className="fw-bold">CICS Mentorship</div>
+                            <div className="fw-bold">CICS Mentorship Program</div>
                             Mentor to CICS first-year students as they navigate courses, extracurriculars, and college life.
                             </div>
                             <Badge bg="primary" pill>
