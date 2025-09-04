@@ -29,18 +29,7 @@ export const Awards = () => {
                             2025
                             </Badge>
                         </ListGroup.Item>
-                        <ListGroup.Item
-                            as="li"
-                            className="d-flex justify-content-between align-items-start"
-                        >
-                            <div className="ms-2 me-auto">
-                            <div className="fw-bold">President and Founder of UMass Competitive Programming Club</div>
-                            Club hosts contests, interview prep, projects and more for student community
-                            </div>
-                            <Badge bg="primary" pill>
-                            2024
-                            </Badge>
-                        </ListGroup.Item>
+                        
                         <ListGroup.Item
                             as="li"
                             className="d-flex justify-content-between align-items-start"

@@ -15,11 +15,25 @@ import DataStory from "../assets/img/DataStroytellingimg.png";
 import tictactoe from "../assets/img/electictactoeimg.jpg";
 import StadiumManagement from "../assets/img/StadiumManagementimg.png";
 import NeuralComplete from "../assets/img/NeuralComplete.png";
+import tbd from "../assets/img/TBD.jpg";
+import utradeThumb from "../assets/img/UTrade_thumbnail.png";
 
 
 export const Projects = () => {
 
   const projects = [
+    {
+      title: "UTrade",
+      description: "Real-time campus marketplace for UMass (React, Socket.IO, Node/Express, MongoDB, Redis, BullMQ, Stripe, OAuth, Cloudinary, SendGrid). Deployed on Vercel/Railway.",
+      imgUrl: utradeThumb,
+      live: "https://u-trade-beige.vercel.app/",
+    },
+    {
+      title: "GreenBalance",
+      description: "Carbon-aware CDN: dynamic HAProxy weights via WattTime data with dashboards and Dockerized stack.",
+      imgUrl: tbd,
+      repo: "https://github.com/himccoder/GreenBalance",
+    },
     {
       title: "Ticket Trading site",
       description: "Mirrors stock market trading of transferrable tickets for events",
@@ -57,8 +71,6 @@ export const Projects = () => {
       imgUrl: StadiumManagement,
       repo: "https://github.com/himccoder/Stadium-Management/tree/main"
     },
-    
-    
   ];
 
   return (
