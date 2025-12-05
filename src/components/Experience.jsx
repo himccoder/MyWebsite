@@ -12,7 +12,9 @@ import SoftwareDevLogo from '../assets/img/SoftwareDevLogo1.jpeg';
 import ManningLogo from '../assets/img/manning_cics_logo.jpeg';
 import Button from 'react-bootstrap/Button';
 import URVPoster from '../assets/URV_poster.pdf';
+import WebSecurityPaper from '../assets/Web_Application_Security_Paper.pdf';
 import CDSLogo from '../assets/img/CDS_logo.jpeg';
+import ArticleIcon from '@mui/icons-material/Article';
 
 export const Experience = () => {
   const urvPosterUrl = URVPoster;
@@ -90,7 +92,64 @@ export const Experience = () => {
                       }}
                       variant="body2"
                     >
-                      Feb 2025 - Present
+                      Oct 2025
+                    </TimelineOppositeContent>
+                    <TimelineSeparator>
+                      <TimelineConnector />
+                      <TimelineDot 
+                        sx={{ 
+                          bgcolor: 'rgba(255, 165, 0, 0.8)',
+                          border: '3px solid rgba(20, 35, 85, 1.0)',
+                          backdropFilter: 'blur(10px)',
+                          width: '50px',
+                          height: '50px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center'
+                        }}
+                      >
+                        <ArticleIcon sx={{ color: '#fff', fontSize: '28px' }} />
+                      </TimelineDot>
+                      <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent sx={{ py: '12px', px: 2 }}>
+                      <div className="experience-card">
+                        <Typography variant="h6" component="div" className="experience-title">
+                          Research Paper Publication
+                        </Typography>
+                        <Typography variant="subtitle1" className="experience-company">
+                          Society of North American Scholars (SNAS)
+                        </Typography>
+                        <Typography variant="body2" className="experience-details">
+                          Conference Presentation & Publication
+                        </Typography>
+                        <Typography variant="body2" className="experience-description">
+                          Published and presented research paper on a Layered ML-based Web Protection Framework. Currently in the publishing pipeline with IEEE.
+                        </Typography>
+                        <div className="project-card-buttons" style={{ marginTop: '12px' }}>
+                          <Button
+                            variant="secondary"
+                            href={WebSecurityPaper}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View Paper
+                          </Button>
+                        </div>
+                      </div>
+                    </TimelineContent>
+                  </TimelineItem>
+
+                  <TimelineItem>
+                    <TimelineOppositeContent
+                      sx={{ 
+                        m: 'auto 0',
+                        fontWeight: 600,
+                        fontSize: '14px'
+                      }}
+                      variant="body2"
+                    >
+                      Feb 2025 - Nov 2025
                     </TimelineOppositeContent>
                     <TimelineSeparator>
                       <TimelineConnector />
