@@ -1,31 +1,27 @@
+import Nav from "./components/Nav";
+import Cursor from "./components/Cursor";
+import Hero from "./sections/Hero";
+import Profile from "./sections/Profile";
+import Experience from "./sections/Experience";
+import Projects from "./sections/Projects";
+import Skills from "./sections/Skills";
+import Contact from "./sections/Contact";
+import Footer from "./sections/Footer";
 
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavBar } from "./components/NavBar";  //named funtion so {fn}
-import { Banner } from "./components/Banner"; //space banner
-import { Skills } from "./components/Skills";
-import { Experience } from "./components/Experience";
-import { Projects } from "./components/Projects";
-import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
-import {Awards} from "./components/Awards";
-import { Extracurriculars } from "./components/Extracurriculars";
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      
-      <NavBar />
-      <Banner />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Extracurriculars />
-      <Awards/>
-      <Contact />
+    <>
+      <Cursor />
+      <Nav />
+      <main>
+        <Hero />
+        <Profile />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
-
-export default App;

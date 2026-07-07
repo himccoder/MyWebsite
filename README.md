@@ -1,98 +1,46 @@
-#  Personal Portfolio Website
+# Himnish Chhabra — Portfolio v2.0
 
-Welcome to my personal website!
+Personal portfolio, rebuilt from scratch. Dark "ego" aesthetic — near-black, electric cyan, jagged display type — with an interactive 3D tennis ball in the hero (drag to spin, click to smash).
 
+## Tech Stack
 
-##  Tech Stack
+- **Vite + React 19** — build tooling and UI
+- **Tailwind CSS 4** — styling via theme tokens in `src/index.css`
+- **three.js + react-three-fiber + drei** — 3D tennis ball scene (lazy-loaded)
+- **Framer Motion** — scroll reveals, hero load animation, mobile menu
+- **Web3Forms** — contact form backend (no server needed)
 
-### Frontend
-- **React 18** - JavaScript library for building user interfaces
-- **React Bootstrap** - CSS framework for responsive design
-- **Material-UI** - React components for experience timeline
-- **Animate.css** - CSS animation library
-- **Custom CSS** - Glassmorphism effects and animations
+## Development
 
-### Backend
-- **Node.js** - Server runtime environment
-- **Express.js** - Web framework for handling contact form
-- **Nodemailer** - Email sending functionality
-- **CORS** - Cross-origin resource sharing
+```bash
+npm install
+npm run dev        # http://localhost:5173
+npm run build      # production build → dist/
+npm run preview    # serve the production build locally
+```
 
-### Tools & Dependencies
-- **React Router** - Client-side routing
-- **React On Screen** - Scroll-triggered animations
-- **Custom Fonts** - Centra font family
+### Contact form
 
-##  Running Site
+The form posts to [Web3Forms](https://web3forms.com). Copy `.env.example` to `.env` and set `VITE_WEB3FORMS_KEY` (free key from their site). In production, set the same env var in Vercel. Without a key the form degrades gracefully to a mailto hint.
 
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn package manager
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/himccoder/MyWebsite.git
-   cd MyWebsite
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server**
-   ```bash
-   npm start
-   ```
-   The app will open at [http://localhost:3000](http://localhost:3000)
-
-4. **Start the email server** (for contact form functionality)
-   ```bash
-   node server.js
-   ```
-   Email server runs on [http://localhost:5000](http://localhost:5000)
-
-##  Project Structure
+## Structure
 
 ```
 src/
-├── components/          # React components
-│   ├── NavBar.jsx      # Navigation bar
-│   ├── Banner.jsx      # Hero section
-│   ├── Skills.jsx      # Skills showcase
-│   ├── Experience.jsx  # Professional timeline
-│   ├── Projects.jsx    # Project portfolio
-│   ├── ProjectCard.jsx # Individual project cards
-│   ├── Awards.jsx      # Awards and achievements
-│   ├── Contact.jsx     # Contact form
-│   └── Footer.jsx      # Footer section
-├── assets/             # Static assets
-│   ├── img/           # Images and logos
-│   ├── font/          # Custom fonts
-│   └── CS320_429__Team_M_-_Project_Documentation.pdf
-├── App.jsx            # Main app component
-├── App.css            # Global styles and glassmorphism
-└── index.js           # Entry point
+├── data/content.js    # ALL site content (experience, projects, skills, ticker)
+├── sections/          # Hero, Profile, Experience, Projects, Skills, Contact, Footer
+├── components/        # Nav, Marquee, Cursor, GlitchText, SectionHeading, ProjectCard, Icons
+├── three/             # BallScene + TennisBall (R3F, code-split)
+├── assets/            # fonts (self-hosted), project images, PDFs
+└── index.css          # Tailwind v4 theme tokens, font-faces, keyframes, utilities
 ```
 
-### Build for Production
-```bash
-npm run build
-```
+To update site content, edit `src/data/content.js` — no component changes needed.
 
+## Deploy
 
-##  Author
+Static site — deploys to Vercel out of the box (framework preset: Vite). Remember to set `VITE_WEB3FORMS_KEY` in the project's environment variables.
 
-**Himnish Chhabra**
-- Portfolio: [Live Demo](https://himccoder.github.io/MyWebsite/)
-- GitHub: [@himccoder](https://github.com/himccoder)
-- Email: himnishchhabra@gmail.com
-- LinkedIn: [Connect with me](https://linkedin.com/in/himnish-chhabra)
+## Author
 
-
-
----
-
-
+**Himnish Chhabra** — [GitHub](https://github.com/himccoder) · [LinkedIn](https://www.linkedin.com/in/himnish-chhabra-3534a22b3/) · himnishchhabra@gmail.com
