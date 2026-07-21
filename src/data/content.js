@@ -57,8 +57,8 @@ export const languageLogos = [
 
 export const about = {
   bio: [
-    "I'm a computer scientist finishing a CS + Math double major at UMass Amherst and heading to UIUC's Siebel School for my MS in Computer Science.",
-    "My work sits where machine learning, systems, and security meet — across six research labs and several engineering internships I've built privacy-preserving multi-agent AI, studied GPU operating systems, shipped carbon-aware infrastructure, and engineered quantitative data pipelines.",
+    "I'm a computer scientist graduated with a CS + Math double major from UMass Amherst and heading to UIUC's Siebel School for my MS in Computer Science.",
+    "My work sits in the domains of AI, systems, security and quant — across six research labs and several engineering internships I've built privacy-preserving multi-agent AI, studied GPU operating systems, shipped carbon-aware infrastructure, and engineered quantitative data pipelines.",
   ],
 };
 

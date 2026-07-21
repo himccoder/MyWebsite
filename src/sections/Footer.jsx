@@ -11,7 +11,7 @@ export default function Footer() {
           <HandUnderline className="absolute -bottom-1.5 left-0 h-1.5 w-full" delay={0.2} />
         </span>
         <p className="font-mono text-xs tracking-[0.15em] text-faint">
-          © 2026 {identity.name} — designed & built from scratch
+          © 2026 {identity.name} 
         </p>
         <a
           href="#top"
