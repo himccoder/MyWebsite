@@ -86,10 +86,10 @@ export default function Contact() {
         {/* form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
-            <input type="text" name="name" placeholder="Name" required className={inputCls} />
-            <input type="email" name="email" placeholder="Email" required className={inputCls} />
+            <input type="text" name="name" placeholder="Your name" required className={inputCls} />
+            <input type="email" name="email" placeholder="Your email" required className={inputCls} />
           </div>
-          <textarea name="message" placeholder="Message" required rows="6" className={inputCls} />
+          <textarea name="message" placeholder="Your message" required rows="6" className={inputCls} />
           <button
             type="submit"
             disabled={status.state === "sending"}

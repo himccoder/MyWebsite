@@ -43,7 +43,7 @@ export const education = [
     degree: "BS, Computer Science + Mathematics",
     dates: "2022 — 2026",
     logo: umassLogo,
-    award: "Chancellor's Award — highest merit scholarship",
+    award: "Chancellor's Award, the highest merit scholarship",
   },
 ];
 
@@ -58,7 +58,7 @@ export const languageLogos = [
 export const about = {
   bio: [
     "I'm a computer scientist graduated with a CS + Math double major from UMass Amherst and heading to UIUC's Siebel School for my MS in Computer Science.",
-    "My work sits in the domains of AI, systems, security and quant — across six research labs and several engineering internships I've built privacy-preserving multi-agent AI, studied GPU operating systems, shipped carbon-aware infrastructure, and engineered quantitative data pipelines.",
+    "My work sits in the domains of AI, systems, security and quant. Across six research labs and several engineering internships I've built privacy-preserving multi-agent AI, studied GPU operating systems, shipped carbon-aware infrastructure, and engineered quantitative data pipelines.",
   ],
 };
 
@@ -90,7 +90,7 @@ export const work = [
     org: "Resource Bounded Reasoning Lab · UMass Amherst",
     dates: "2025",
     summary:
-      "Built an MCP Blackboard Server tracing malicious agent communication in multi-agent AI — secure logging and a Redis pipeline monitoring 1,000+ events across 20+ agents.",
+      "Built an MCP Blackboard Server tracing malicious agent communication in multi-agent AI, with secure logging and a Redis pipeline monitoring 1,000+ events across 20+ agents.",
   },
 ];
 
@@ -101,7 +101,7 @@ export const research = [
     lab: "NLP Lab · UMass Amherst",
     advisor: "Prof. Katrin Erk",
     dates: "2026 — Present",
-    summary: "LLMs and Transformers — model behavior and representation.",
+    summary: "Studying LLMs and Transformers, focusing on model behavior and representation.",
   },
   {
     role: "Research Assistant",
@@ -109,7 +109,7 @@ export const research = [
     advisor: "Prof. Saketh Sridhara",
     dates: "2026 — Present",
     summary:
-      "Neural reparameterization for topology optimization — a 12-condition ablation in PyTorch + FEM isolating the architectural prior as a key driver of compliance reduction.",
+      "Neural reparameterization for topology optimization, running a 12-condition ablation in PyTorch + FEM that isolates the architectural prior as a key driver of compliance reduction.",
   },
   {
     role: "Research Assistant",
@@ -117,7 +117,7 @@ export const research = [
     advisor: "Prof. Nikko Bovornkeeratiroj",
     dates: "2025 — 2026",
     summary:
-      "Analyzed LithOS, a GPU operating system for efficient ML workloads — scheduling, kernel atomization, and software-level resource control.",
+      "Analyzed LithOS, a GPU operating system for efficient ML workloads, covering scheduling, kernel atomization, and software-level resource control.",
   },
   {
     role: "Research Replication Study",
@@ -134,16 +134,16 @@ export const research = [
     advisor: "Mentor: Thanathorn Sukprasert",
     dates: "2025",
     summary:
-      "Carbon-aware load balancing with HAProxy + WattTime — cut simulated data-center CO₂ up to 42%.",
+      "Carbon-aware load balancing with HAProxy + WattTime that cut simulated data-center CO₂ by up to 42%.",
     link: { href: urvPoster, label: "View poster" },
   },
   {
-    role: "Publication — Web App Security Verification",
+    role: "Publication: Web App Security Verification",
     lab: "Society of North American Scholars",
     advisor: "Sole author",
     dates: "2025",
     summary:
-      "Hybrid static/dynamic + bi-LSTM web-vulnerability detection — F1 0.85, beating existing tools 10–25%. In the IEEE pipeline.",
+      "Hybrid static/dynamic + bi-LSTM web vulnerability detection scoring F1 0.85 and beating existing tools by 10 to 25%. In the IEEE pipeline.",
     badge: "IEEE pipeline",
     link: { href: securityPaper, label: "Read the paper" },
   },
@@ -180,7 +180,7 @@ export const projects = [
   {
     title: "Ticket Trading App",
     description:
-      "Real-time bidding platform for university event tickets — live pricing and order matching.",
+      "Real-time bidding platform for university event tickets with live pricing and order matching.",
     stack: ["Node.js", "React", "MongoDB", "Socket.IO"],
     img: ticketThumb,
     repo: "https://github.com/marco-dm1/CS320-Team-M",
@@ -190,7 +190,7 @@ export const projects = [
   {
     title: "Neural Complete",
     description:
-      "Character-level RNN built from scratch in PyTorch — custom cells, backprop, and training loops.",
+      "Character-level RNN built from scratch in PyTorch with custom cells, backprop, and training loops.",
     stack: ["Python", "PyTorch", "NumPy"],
     img: neuralThumb,
     repo: "https://github.com/himccoder/Neural-Complete",
@@ -214,7 +214,7 @@ export const extracurriculars = [
     org: "UMass Competitive Programming Club",
     dates: "2024 — 2026",
     icon: "trophy",
-    note: "Founded and led the club — practices, contests and a growing problem-solving community.",
+    note: "Founded and led the club, running practices and contests for a growing problem-solving community.",
   },
   {
     title: "Dean's Advisory Committee",

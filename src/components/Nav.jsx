@@ -27,12 +27,12 @@ export default function Nav() {
         </a>
 
         {/* desktop links — label slides up, amber duplicate slides in */}
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-6 md:flex lg:gap-8">
           {navLinks.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="group relative block overflow-hidden font-mono text-xs uppercase tracking-[0.22em]"
+                className="group relative block overflow-hidden text-sm uppercase tracking-[0.16em]"
               >
                 <span className="block text-mist transition-transform duration-300 ease-out group-hover:-translate-y-full">
                   {l.label}

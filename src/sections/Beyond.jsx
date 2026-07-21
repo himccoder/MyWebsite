@@ -57,9 +57,13 @@ export default function Beyond() {
           title={
             <>
               Beyond the{" "}
-              <span className="relative inline-block px-2">
+              <span className="relative inline-block px-[0.12em]">
                 code
-                <HandCircle className="absolute -inset-x-3 -inset-y-2" />
+                {/* em offsets scale with the responsive heading size. Fraunces
+                    sits low in a line-height:1 box (baseline ~0.85em), so the
+                    loop runs from just above the ascenders to below the baseline
+                    to enclose the whole word. */}
+                <HandCircle className="absolute -inset-x-[0.06em] -top-[0.16em] -bottom-[0.04em]" />
               </span>
             </>
           }

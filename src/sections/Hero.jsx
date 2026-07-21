@@ -42,7 +42,7 @@ export default function Hero() {
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-5 pt-28 pb-16 lg:grid-cols-[1.15fr_1fr]">
         {/* ===== typography ===== */}
         <div>
-          <h1 className="relative type-display text-[clamp(3.5rem,10vw,7rem)] leading-[0.92] text-fog">
+          <h1 className="relative type-display text-[clamp(3rem,11vw,7rem)] leading-[0.92] text-fog">
             <span className="block">
               <MaskedLetters text="Himnish" delay={0.1} />
             </span>
@@ -82,9 +82,9 @@ export default function Hero() {
                   <img src={e.logo} alt={e.school} className="max-h-12 max-w-12 object-contain" />
                 </span>
                 <div className="leading-snug">
-                  <p className="text-[15px] font-semibold text-fog">{e.short}</p>
-                  <p className="text-xs text-mist">{e.degree}</p>
-                  {e.award && <p className="mt-1 text-xs font-medium text-amber">{e.award}</p>}
+                  <p className="text-base font-semibold text-fog">{e.short}</p>
+                  <p className="text-sm text-mist">{e.degree}</p>
+                  {e.award && <p className="mt-1 text-sm font-medium text-amber">{e.award}</p>}
                 </div>
               </div>
             ))}
