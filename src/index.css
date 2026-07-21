@@ -1,44 +1,56 @@
 @import "tailwindcss";
 
 /* ============ self-hosted fonts ============ */
+/* Fraunces — warm optical serif (display) */
 @font-face {
-  font-family: "Anton";
+  font-family: "Fraunces";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 100 900;
   font-display: swap;
-  src: url("./assets/fonts/anton-latin.woff2") format("woff2");
+  src: url("./assets/fonts/fraunces.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Fraunces";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./assets/fonts/fraunces-italic.woff2") format("woff2");
 }
 
+/* Inter — body */
 @font-face {
-  font-family: "Space Grotesk";
+  font-family: "Inter";
   font-style: normal;
-  font-weight: 300 700;
+  font-weight: 100 900;
   font-display: swap;
-  src: url("./assets/fonts/space-grotesk-latin.woff2") format("woff2");
+  src: url("./assets/fonts/inter.woff2") format("woff2");
 }
 
-/* ============ v2 "Ego" theme tokens ============ */
+/* ============ "Warm Paper" theme tokens (light) ============ */
 @theme {
-  /* palette */
-  --color-ink: #07090f; /* page background */
-  --color-surface: #0d1119; /* raised panels */
-  --color-edge: #1a2233; /* borders / hairlines */
-  --color-neon: #00e5ff; /* primary electric cyan */
-  --color-pulse: #1e3aff; /* deep blue secondary */
-  --color-fog: #e8ecf3; /* main text */
-  --color-mist: #8a93a6; /* muted text */
-  --color-hot: #ff2d55; /* rare hot accent */
+  /* palette — warm white + burnt-amber accent */
+  --color-ink: #fbf8f2; /* page background (warm white) */
+  --color-surface: #ffffff; /* raised cards (clean white) */
+  --color-raise: #f2ecde; /* secondary panels / hover */
+  --color-edge: #e9e0cf; /* hairlines / borders */
+  --color-amber: #c1571b; /* primary accent (burnt amber) */
+  --color-ember: #e07d2e; /* brighter amber for fills / decor */
+  /* muted warm companions — icon accents only, never large surfaces */
+  --color-marigold: #c98a12;
+  --color-olive: #71842f;
+  --color-teal: #2e7d89;
+  --color-plum: #9c4f6e;
+  --color-fog: #211e17; /* main text (warm near-black) */
+  --color-mist: #6a5f4d; /* muted text (taupe) */
+  --color-faint: #9c8d75; /* faintest text / lines */
 
-  /* typography */
-  --font-display: "Anton", "Arial Black", sans-serif;
-  --font-body: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  /* typography — "mono" role now renders in tracked Inter (no digital look) */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* motion — sharp anime-cut easing */
-  --ease-cut: cubic-bezier(0.85, 0, 0.15, 1);
-
-  --animate-marquee: marquee 32s linear infinite;
-  --animate-glitch-a: glitch-a 2.4s steps(2, end) infinite;
-  --animate-glitch-b: glitch-b 2.4s steps(2, end) infinite;
+  /* motion — soft, refined easing */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ============ base ============ */
@@ -50,144 +62,93 @@ body {
   background-color: var(--color-ink);
   color: var(--color-fog);
   font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
+.font-display,
+h1,
+h2,
+h3 {
+  font-optical-sizing: auto;
+}
+
 ::selection {
-  background: var(--color-neon);
-  color: var(--color-ink);
+  background: color-mix(in srgb, var(--color-amber) 25%, transparent);
+  color: var(--color-fog);
 }
 
-/* hide native cursor when the neon cursor is mounted (fine pointers only) */
-.has-custom-cursor,
-.has-custom-cursor * {
-  cursor: none;
-}
-
-/* neon-visible keyboard focus */
 :focus-visible {
-  outline: 2px solid var(--color-neon);
+  outline: 2px solid var(--color-amber);
   outline-offset: 3px;
+  border-radius: 2px;
 }
 
-/* thin neon scrollbar */
+/* thin warm scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-ink);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-edge);
-  border-radius: 4px;
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-neon);
+  background: color-mix(in srgb, var(--color-amber) 50%, var(--color-edge));
 }
 
-/* ============ display type treatment ============ */
+/* ============ type treatments ============ */
 @utility type-display {
   font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+@utility type-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  letter-spacing: 0.01em;
-  line-height: 0.92;
+  color: var(--color-mist);
 }
 
-/* italic slash — the "title card" lean */
-@utility type-lean {
-  transform: skewX(-8deg);
-}
-
-/* neon glow text */
-@utility glow-neon {
-  text-shadow:
-    0 0 12px color-mix(in srgb, var(--color-neon) 65%, transparent),
-    0 0 48px color-mix(in srgb, var(--color-neon) 30%, transparent);
-}
-
-/* jagged bottom edge (section divider) */
-@utility edge-jag-bottom {
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% calc(100% - 3.5rem),
-    72% calc(100% - 1.25rem),
-    45% 100%,
-    22% calc(100% - 2rem),
-    0 calc(100% - 0.75rem)
-  );
-}
-
-/* diagonal slice edge */
-@utility edge-slash {
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
-}
-
-/* hairline neon border card */
+/* warm hairline card */
 @utility panel {
   background: var(--color-surface);
   border: 1px solid var(--color-edge);
 }
 
-/* ============ keyframes ============ */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* soft top-lit card */
+@utility panel-lit {
+  background:
+    linear-gradient(180deg, #ffffff 0%, var(--color-surface) 55%);
+  border: 1px solid var(--color-edge);
 }
 
-@keyframes glitch-a {
-  0%,
-  86%,
-  100% {
-    transform: translate(0, 0);
-    opacity: 0;
-  }
-  88% {
-    transform: translate(-3px, 2px);
-    opacity: 0.8;
-  }
-  92% {
-    transform: translate(2px, -1px);
-    opacity: 0.6;
-  }
-  96% {
-    transform: translate(-1px, -2px);
-    opacity: 0.9;
-  }
+/* frosted glass card — needs colour behind it (blobs) to read as glass */
+@utility glass {
+  background: color-mix(in srgb, #ffffff 52%, transparent);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in srgb, #ffffff 75%, transparent);
+  box-shadow: 0 10px 36px -14px rgba(44, 34, 24, 0.16);
 }
 
-@keyframes glitch-b {
-  0%,
-  84%,
-  100% {
-    transform: translate(0, 0);
-    opacity: 0;
-  }
-  87% {
-    transform: translate(3px, -2px);
-    opacity: 0.7;
-  }
-  91% {
-    transform: translate(-2px, 1px);
-    opacity: 0.5;
-  }
-  95% {
-    transform: translate(1px, 2px);
-    opacity: 0.8;
-  }
-}
-
-@keyframes scanline {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(100vh);
-  }
+/* ============ subtle paper grain ============ */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.025;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ============ reduced motion ============ */

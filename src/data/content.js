@@ -1,6 +1,15 @@
 // ============================================================
-// Single source of truth for all site content (from CV, 2026)
+// Single source of truth for all site content (from CV/Resume, 2026)
 // ============================================================
+
+import portrait from "../assets/img/portrait.jpg";
+
+import uiucLogo from "../assets/img/logos/uiuc.png";
+import umassLogo from "../assets/img/logos/University_of_Massachusetts_Amherst_seal.png";
+import pythonLogo from "../assets/img/logos/python.png";
+import javaLogo from "../assets/img/logos/java.svg";
+import jsLogo from "../assets/img/logos/js.png";
+import cLogo from "../assets/img/logos/c.png";
 
 import utradeThumb from "../assets/img/UTrade_thumbnail.png";
 import ticketThumb from "../assets/img/TicketTradingimg.png";
@@ -13,138 +22,140 @@ import ticketDocs from "../assets/pdf/CS320_429__Team_M_-_Project_Documentation.
 
 export const identity = {
   name: "Himnish Chhabra",
-  roles: ["AI/ML Engineer", "Full-Stack Developer", "Researcher"],
-  education: "BS CS + Math, UMass Amherst '26 → MS CS, UIUC",
   email: "himnishchhabra@gmail.com",
   github: "https://github.com/himccoder",
   linkedin: "https://www.linkedin.com/in/himnish-chhabra-3534a22b3/",
+  portrait,
 };
 
-// Achievement ticker — replaces the old Awards section
-export const marquee = [
-  "UMass Chancellor's Award",
-  "Dean's List × 7 Semesters",
-  "Best Hardware Hack — HackUMass XI",
-  "UW Digital Health Challenge Winner",
-  "NASEC Presenter — Dean Nominated",
-  "Published — IEEE Pipeline",
-  "National-Level Tennis Player",
-  "Dean's Advisory Committee",
+// Education — shown as clean logo lockups near the hero
+export const education = [
+  {
+    school: "University of Illinois Urbana-Champaign",
+    short: "UIUC · Siebel School",
+    degree: "MS, Computer Science",
+    dates: "2026 — 2027",
+    logo: uiucLogo,
+  },
+  {
+    school: "University of Massachusetts Amherst",
+    short: "UMass Amherst",
+    degree: "BS, Computer Science + Mathematics",
+    dates: "2022 — 2026",
+    logo: umassLogo,
+    award: "Chancellor's Award — highest merit scholarship",
+  },
 ];
 
-export const profile = {
+// Language logos for the Skills section
+export const languageLogos = [
+  { name: "Python", logo: pythonLogo },
+  { name: "Java", logo: javaLogo },
+  { name: "JavaScript", logo: jsLogo },
+  { name: "C", logo: cLogo },
+];
+
+export const about = {
   bio: [
-    "I build systems where machine learning meets the real world — from privacy-preserving multi-agent AI and GPU operating systems to carbon-aware infrastructure and quant pipelines.",
-    "Currently finishing a CS + Math double major at UMass Amherst, headed to UIUC for my MS in Computer Science this fall. Off the keyboard, I compete at the national level in tennis — same instinct either way: read the play, strike fast.",
-  ],
-  stats: [
-    { value: "3.7", label: "GPA · UMass Amherst" },
-    { value: "5", label: "Research Labs" },
-    { value: "1", label: "Publication · IEEE Pipeline" },
-    { value: "2", label: "Hackathon / Challenge Wins" },
+    "I'm a computer scientist finishing a CS + Math double major at UMass Amherst and heading to UIUC's Siebel School for my MS in Computer Science.",
+    "My work sits where machine learning, systems, and security meet — across six research labs and several engineering internships I've built privacy-preserving multi-agent AI, studied GPU operating systems, shipped carbon-aware infrastructure, and engineered quantitative data pipelines.",
   ],
 };
 
-// tags: RESEARCH | INDUSTRY | TEACHING
-export const experience = [
+// ── PRIORITY 1 ── Work / industry experience
+export const work = [
   {
-    role: "Research Assistant",
-    org: "NLP Lab · UMass Amherst",
-    dates: "Jun 2026 — Present",
-    tag: "RESEARCH",
-    summary:
-      "Research on LLMs and Transformers with Prof. Katrin Erk — details forthcoming.",
-  },
-  {
-    role: "Research Assistant",
-    org: "Computational Design Lab (PROPEL) · UMass Amherst",
-    dates: "Jan 2026 — Present",
-    tag: "RESEARCH",
-    summary:
-      "Neural reparameterization for structural topology optimization: 12-condition ablation across MLP, Fourier MLP, SIREN, and U-Net CNN parameterizations with PyTorch + FEM solvers.",
-  },
-  {
-    role: "Quant Research & AI Engineering Intern",
+    role: "Quantitative Research & AI Engineering Intern",
     org: "Crypt0nest",
-    dates: "Jan 2026 — May 2026",
-    tag: "INDUSTRY",
+    dates: "2026",
     summary:
-      "Engineered a fail-fast Bronze→Silver crypto data pipeline (0.5% loss gate), lookahead-free RSI/EMA/Bollinger features, and a modular Python backtesting engine scoring ML models on Sharpe and max drawdown.",
-  },
-  {
-    role: "Research Assistant",
-    org: "Laboratory for Advanced System Software (LASS)",
-    dates: "Dec 2025 — Jan 2026",
-    tag: "RESEARCH",
-    summary:
-      "Technical analysis of LithOS — a GPU operating system for efficient ML workloads: fine-grained scheduling, kernel atomization, software-level resource control.",
-  },
-  {
-    role: "Software Engineering Intern",
-    org: "Altheros Capital",
-    dates: "Sep 2025 — Dec 2025",
-    tag: "INDUSTRY",
-    summary:
-      "Raised Cara.ai recommendation CTR 15% via Bayesian A/B analytics on 500+ users; built secure telehealth video with Twilio, FastAPI, PostgreSQL, and AWS.",
+      "Built a fail-fast crypto data pipeline and a Python backtesting engine scoring ML models on Sharpe ratio and drawdown.",
   },
   {
     role: "Undergraduate Teaching Assistant",
     org: "CICS · UMass Amherst",
-    dates: "Sep 2025 — May 2026",
-    tag: "TEACHING",
+    dates: "2025 — 2026",
     summary:
-      "Computer Networks & Security — weekly support sessions for 150+ students; building network simulations for secure-protocol intuition.",
+      "Ran weekly help sessions for 150+ students in Computer Networks & Security and built network simulations for secure protocols.",
   },
   {
-    role: "Research Replication Study",
-    org: "UMass Cybersecurity Institute · Crypto Lab",
-    dates: "Sep 2025 — Dec 2025",
-    tag: "RESEARCH",
+    role: "Software Engineering Intern",
+    org: "Altheros Capital",
+    dates: "2025",
     summary:
-      "Replicated the Scale-and-Perturb (SAP) encryption scheme, measuring effects on encrypted ML robustness. Dean-nominated to present at the 14th Naval Academy Science & Engineering Conference.",
-  },
-  {
-    role: "Publication — Web App Security Framework",
-    org: "Society of North American Scholars (SNAS)",
-    dates: "Oct 2025",
-    tag: "RESEARCH",
-    summary:
-      "Hybrid static/dynamic/bi-LSTM vulnerability detection framework — F1 0.85, beating existing tools by 10–25%. In publication pipeline with IEEE.",
-    link: { href: securityPaper, label: "Read the paper" },
-  },
-  {
-    role: "Research Assistant",
-    org: "Resource Bounded Reasoning Lab · UMass Amherst",
-    dates: "May 2025 — Aug 2025",
-    tag: "RESEARCH",
-    summary:
-      "Privacy-preserving multi-agent AI: built an MCP Blackboard Server for auditable inter-agent communication and a Redis pipeline tracing 1,000+ events across 20+ agents; 2× testing throughput.",
-  },
-  {
-    role: "Undergraduate Research Volunteer",
-    org: "GreenBalance · UMass Amherst",
-    dates: "Jun 2025 — Aug 2025",
-    tag: "RESEARCH",
-    summary:
-      "Carbon-aware load balancing with HAProxy Dataplane + WattTime APIs — cut simulated CO₂ emissions up to 42%.",
-    link: { href: urvPoster, label: "View poster" },
+      "Raised Cara.ai recommendation CTR 15% with Bayesian A/B analytics, and shipped secure telehealth video on FastAPI + AWS.",
   },
   {
     role: "Software Development Intern",
-    org: "sOliver Group · Delhi, India",
-    dates: "Jun 2024 — Aug 2024",
-    tag: "INDUSTRY",
+    org: "Resource Bounded Reasoning Lab · UMass Amherst",
+    dates: "2025",
     summary:
-      "Real-time supply chain monitoring over $380M sourcing volume — containerized Node.js microservices (Docker, Kubernetes) processing 10,000+ daily transactions; cut airfreight costs 12%.",
+      "Built an MCP Blackboard Server tracing malicious agent communication in multi-agent AI — secure logging and a Redis pipeline monitoring 1,000+ events across 20+ agents.",
   },
 ];
 
+// ── PRIORITY 2 ── Research experience & publications
+export const research = [
+  {
+    role: "Research Assistant",
+    lab: "NLP Lab · UMass Amherst",
+    advisor: "Prof. Katrin Erk",
+    dates: "2026 — Present",
+    summary: "LLMs and Transformers — model behavior and representation.",
+  },
+  {
+    role: "Research Assistant",
+    lab: "Computational Design Lab · UMass Amherst",
+    advisor: "Prof. Saketh Sridhara",
+    dates: "2026 — Present",
+    summary:
+      "Neural reparameterization for topology optimization — a 12-condition ablation in PyTorch + FEM isolating the architectural prior as a key driver of compliance reduction.",
+  },
+  {
+    role: "Research Assistant",
+    lab: "Advanced System Software Lab (LASS)",
+    advisor: "Prof. Nikko Bovornkeeratiroj",
+    dates: "2025 — 2026",
+    summary:
+      "Analyzed LithOS, a GPU operating system for efficient ML workloads — scheduling, kernel atomization, and software-level resource control.",
+  },
+  {
+    role: "Research Replication Study",
+    lab: "Cybersecurity Institute · Crypto Lab",
+    advisor: "Prof. Adam O'Neill",
+    dates: "2025",
+    summary:
+      "Replicated the Scale-and-Perturb encryption scheme on encrypted-ML robustness. Dean-nominated to present at NASEC.",
+    badge: "Dean-nominated",
+  },
+  {
+    role: "Undergraduate Research Volunteer",
+    lab: "GreenBalance · UMass Amherst",
+    advisor: "Mentor: Thanathorn Sukprasert",
+    dates: "2025",
+    summary:
+      "Carbon-aware load balancing with HAProxy + WattTime — cut simulated data-center CO₂ up to 42%.",
+    link: { href: urvPoster, label: "View poster" },
+  },
+  {
+    role: "Publication — Web App Security Verification",
+    lab: "Society of North American Scholars",
+    advisor: "Sole author",
+    dates: "2025",
+    summary:
+      "Hybrid static/dynamic + bi-LSTM web-vulnerability detection — F1 0.85, beating existing tools 10–25%. In the IEEE pipeline.",
+    badge: "IEEE pipeline",
+    link: { href: securityPaper, label: "Read the paper" },
+  },
+];
+
+// ── PRIORITY 3 ── Projects
 export const projects = [
   {
     title: "UTrade",
     description:
-      "Real-time campus marketplace for UMass — Stripe Connect escrow with 6-digit PIN release, BullMQ expiry jobs, Socket.IO live updates. Deployed on Vercel + Railway.",
-    stack: ["React", "Socket.IO", "MongoDB", "Redis", "Stripe"],
+      "Real-time campus marketplace with Stripe Connect escrow, PIN release, and live Socket.IO updates.",
+    stack: ["React", "Socket.IO", "MongoDB", "Stripe"],
     img: utradeThumb,
     live: "https://u-trade-beige.vercel.app/",
     badge: null,
@@ -152,23 +163,24 @@ export const projects = [
   {
     title: "BrainBoost",
     description:
-      "Cognitive training platform with 4 clinically-grounded brain games and print-ready neurologist reports. Won the UW Tech Exploration Lab Digital Health Challenge.",
+      "Cognitive-training platform with clinically-grounded brain games and neurologist-ready reports.",
     stack: ["React", "Supabase", "PostgreSQL", "Gemini API"],
-    img: null, // TODO: add screenshot
-    badge: "CHALLENGE WINNER",
+    img: null,
+    live: "https://brain-boost-eta.vercel.app/",
+    badge: "Challenge Winner",
   },
   {
     title: "RoomMatchr",
     description:
-      "Secure roommate matching for UMass students — ML compatibility scoring, E2E-encrypted chat, 200+ concurrent users on Spring Boot + MySQL.",
+      "Roommate matching for UMass students with ML compatibility scoring and encrypted real-time chat.",
     stack: ["React", "Spring Boot", "MySQL", "OAuth"],
-    img: null, // TODO: add screenshot
+    img: null,
     badge: null,
   },
   {
     title: "Ticket Trading App",
     description:
-      "Led a team of 6 building a real-time bidding platform for university event tickets — stock-market mechanics with live price updates and order matching.",
+      "Real-time bidding platform for university event tickets — live pricing and order matching.",
     stack: ["Node.js", "React", "MongoDB", "Socket.IO"],
     img: ticketThumb,
     repo: "https://github.com/marco-dm1/CS320-Team-M",
@@ -178,7 +190,7 @@ export const projects = [
   {
     title: "Neural Complete",
     description:
-      "Character-level RNN built from scratch in PyTorch — custom recurrent cells, backprop, and training loops for next-character prediction.",
+      "Character-level RNN built from scratch in PyTorch — custom cells, backprop, and training loops.",
     stack: ["Python", "PyTorch", "NumPy"],
     img: neuralThumb,
     repo: "https://github.com/himccoder/Neural-Complete",
@@ -187,11 +199,43 @@ export const projects = [
   {
     title: "Elec-TIC-TAC-TOE",
     description:
-      "Physical Tic-Tac-Toe with custom circuitry, LEDs, buzzers, and an Arduino game engine. Best Hardware Hack at HackUMass XI.",
+      "Physical Tic-Tac-Toe with custom circuitry and an Arduino game engine. Best Hardware Hack, HackUMass XI.",
     stack: ["Arduino", "C++"],
     img: ticTacToeThumb,
     repo: "https://github.com/himccoder/elec-TIC-TAC-TOE",
-    badge: "BEST HARDWARE HACK",
+    badge: "Best Hardware Hack",
+  },
+];
+
+// ── PRIORITY 4 ── Leadership & extracurriculars
+export const extracurriculars = [
+  {
+    title: "Founder & President",
+    org: "UMass Competitive Programming Club",
+    dates: "2024 — 2026",
+    icon: "trophy",
+    note: "Founded and led the club — practices, contests and a growing problem-solving community.",
+  },
+  {
+    title: "Dean's Advisory Committee",
+    org: "CICS Startup Initiatives",
+    dates: "2025 — 2026",
+    icon: "users",
+    note: "Advised college leadership on student-facing and startup initiatives.",
+  },
+  {
+    title: "CICS Mentor",
+    org: "UMass Amherst",
+    dates: "2025 — 2026",
+    icon: "compass",
+    note: "Mentored freshmen and sophomores through the CS program.",
+  },
+  {
+    title: "Tennis",
+    org: "National-level player",
+    dates: "Ongoing",
+    icon: "tennis",
+    note: "Competing in national-level tournaments alongside engineering.",
   },
 ];
 
@@ -199,32 +243,32 @@ export const skills = {
   domains: [
     {
       title: "AI / ML & Research",
-      blurb: "Training, evaluating, and attacking models — in the lab and in production.",
+      icon: "spark",
       items: ["PyTorch", "scikit-learn", "Pandas / NumPy", "LLMs & Transformers", "MCP", "OpenAI / DeepSeek APIs"],
     },
     {
-      title: "Full-Stack",
-      blurb: "Shipping real products with modern frameworks end to end.",
+      title: "Web Dev",
+      icon: "code",
       items: ["React", "TypeScript", "Node / Express", "FastAPI", "Spring Boot", "Tailwind CSS"],
     },
     {
       title: "Systems & Cloud",
-      blurb: "Containers, orchestration, and infrastructure that scales.",
+      icon: "server",
       items: ["Docker", "Kubernetes", "AWS", "Redis", "HAProxy", "CI/CD"],
     },
     {
       title: "Data",
-      blurb: "Relational, document, and realtime stores — picked per problem.",
+      icon: "database",
       items: ["PostgreSQL", "MySQL", "MongoDB", "Firebase", "Supabase"],
     },
   ],
-  languages: ["Python", "Java", "JavaScript / TypeScript", "C"],
 };
 
 export const navLinks = [
-  { href: "#profile", label: "Profile" },
-  { href: "#experience", label: "Experience" },
+  { href: "#about", label: "About" },
+  { href: "#work", label: "Work" },
+  { href: "#research", label: "Research" },
   { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
+  { href: "#beyond", label: "Beyond" },
   { href: "#contact", label: "Contact" },
 ];

@@ -1,4 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#07090f"/>
-  <text x="32" y="46" font-family="Arial Black, sans-serif" font-size="34" font-weight="900" fill="#00e5ff" text-anchor="middle" transform="skewX(-8)" style="letter-spacing:-2px">HC</text>
+  <rect width="64" height="64" rx="12" fill="#fbf8f2"/>
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="11.25" fill="none" stroke="#e9e0cf" stroke-width="1.5"/>
+  <text x="32" y="45" font-family="Georgia, serif" font-size="38" font-style="italic" font-weight="600" fill="#c1571b" text-anchor="middle">H</text>
+  <path d="M18 51 C 26 48.5, 36 52.5, 46 49.5" fill="none" stroke="#c1571b" stroke-width="3" stroke-linecap="round"/>
 </svg>

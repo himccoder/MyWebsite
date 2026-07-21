@@ -1,25 +1,22 @@
-import { motion } from "framer-motion";
+import HandUnderline from "./HandUnderline";
+import { SplitWords } from "./SplitText";
 
 /**
- * Numbered section heading — "01 // PROFILE" index line + giant display title.
+ * Section heading — one big serif word that IS the section name. String
+ * titles rise word-by-word out of masks; JSX titles render as given. The
+ * signature hand-drawn underline draws in beneath.
  */
-export default function SectionHeading({ index, label, title }) {
+export default function SectionHeading({ title, underline = true }) {
+  const isText = typeof title === "string";
+
   return (
-    <motion.div
-      initial={{ opacity: 0, x: -32 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.45, ease: [0.85, 0, 0.15, 1] }}
-      className="mb-12"
-    >
-      <p className="font-mono text-sm tracking-[0.35em] text-neon mb-3">
-        {index} <span className="text-mist">//</span>{" "}
-        <span className="text-mist uppercase">{label}</span>
-      </p>
-      <h2 className="type-display type-lean text-5xl sm:text-6xl md:text-7xl text-fog">
-        {title}
-        <span className="text-neon">.</span>
+    <div className="mb-14">
+      <h2 className="relative inline-block type-display text-6xl text-fog sm:text-7xl md:text-8xl">
+        {isText ? <SplitWords text={title} delay={0.1} /> : title}
+        {underline && (
+          <HandUnderline className="absolute -bottom-3 left-0 h-3.5 w-[46%] min-w-[8rem]" delay={0.55} />
+        )}
       </h2>
-    </motion.div>
+    </div>
   );
 }

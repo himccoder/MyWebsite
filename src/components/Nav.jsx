@@ -16,44 +16,52 @@ export default function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-ink/85 backdrop-blur-md border-b border-edge" : "bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-ink/80 backdrop-blur-md border-b border-edge" : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         {/* mark */}
-        <a href="#top" className="type-display type-lean text-2xl text-fog leading-none">
-          HC<span className="text-neon">.</span>
+        <a href="#top" className="type-display text-2xl leading-none text-fog">
+          Himnish<span className="text-amber">.</span>
         </a>
 
-        {/* desktop links */}
-        <ul className="hidden md:flex items-center gap-8">
+        {/* desktop links — label slides up, amber duplicate slides in */}
+        <ul className="hidden items-center gap-8 md:flex">
           {navLinks.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="font-mono text-xs tracking-[0.25em] uppercase text-mist hover:text-neon transition-colors"
+                className="group relative block overflow-hidden font-mono text-xs uppercase tracking-[0.22em]"
               >
-                {l.label}
+                <span className="block text-mist transition-transform duration-300 ease-out group-hover:-translate-y-full">
+                  {l.label}
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 block translate-y-full text-amber transition-transform duration-300 ease-out group-hover:translate-y-0"
+                >
+                  {l.label}
+                </span>
               </a>
             </li>
           ))}
         </ul>
 
-        <div className="hidden md:flex items-center gap-5">
+        <div className="hidden items-center gap-5 md:flex">
           <a href={identity.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-            className="text-mist hover:text-neon transition-colors">
+            className="text-mist transition-colors hover:text-fog">
             <GitHubIcon />
           </a>
           <a href={identity.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-            className="text-mist hover:text-neon transition-colors">
+            className="text-mist transition-colors hover:text-[#0a66c2]">
             <LinkedInIcon />
           </a>
         </div>
 
         {/* mobile toggle */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="flex flex-col gap-1.5 p-2 md:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -71,8 +79,8 @@ export default function Nav() {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden border-b border-edge bg-ink/95 backdrop-blur-md px-5 pb-6"
+            transition={{ duration: 0.25 }}
+            className="border-b border-edge bg-ink/95 px-5 pb-6 backdrop-blur-md md:hidden"
           >
             <ul className="flex flex-col gap-4 pt-2">
               {navLinks.map((l) => (
@@ -80,7 +88,7 @@ export default function Nav() {
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="type-display text-3xl text-fog hover:text-neon transition-colors"
+                    className="type-display text-3xl text-fog transition-colors hover:text-amber"
                   >
                     {l.label}
                   </a>
@@ -88,10 +96,10 @@ export default function Nav() {
               ))}
             </ul>
             <div className="mt-6 flex gap-6">
-              <a href={identity.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-mist hover:text-neon">
+              <a href={identity.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-mist hover:text-fog">
                 <GitHubIcon className="size-6" />
               </a>
-              <a href={identity.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-mist hover:text-neon">
+              <a href={identity.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-mist hover:text-[#0a66c2]">
                 <LinkedInIcon className="size-6" />
               </a>
             </div>

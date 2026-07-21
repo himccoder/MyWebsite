@@ -15,3 +15,71 @@ export const ArrowIcon = ({ className = "size-4" }) => (
     <path d="M7 17L17 7M17 7H8M17 7v9" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
+
+/* ===== small stroke icons (domains & extracurriculars) ===== */
+
+const stroke = { fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" };
+
+export const SparkIcon = ({ className = "size-5" }) => (
+  <svg viewBox="0 0 24 24" {...stroke} className={className} aria-hidden="true">
+    <path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z" />
+    <path d="M19 15.5l.75 2 2 .75-2 .75-.75 2-.75-2-2-.75 2-.75.75-2z" />
+  </svg>
+);
+
+export const CodeIcon = ({ className = "size-5" }) => (
+  <svg viewBox="0 0 24 24" {...stroke} className={className} aria-hidden="true">
+    <path d="M8 7l-5 5 5 5" />
+    <path d="M16 7l5 5-5 5" />
+    <path d="M13.5 4.5l-3 15" />
+  </svg>
+);
+
+export const ServerIcon = ({ className = "size-5" }) => (
+  <svg viewBox="0 0 24 24" {...stroke} className={className} aria-hidden="true">
+    <rect x="3" y="4.5" width="18" height="6.5" rx="1.8" />
+    <rect x="3" y="13" width="18" height="6.5" rx="1.8" />
+    <path d="M7 7.75h.01M7 16.25h.01M11 7.75h.01M11 16.25h.01" />
+  </svg>
+);
+
+export const DatabaseIcon = ({ className = "size-5" }) => (
+  <svg viewBox="0 0 24 24" {...stroke} className={className} aria-hidden="true">
+    <ellipse cx="12" cy="5.2" rx="7" ry="2.7" />
+    <path d="M5 5.2v13.6c0 1.5 3.1 2.7 7 2.7s7-1.2 7-2.7V5.2" />
+    <path d="M5 12c0 1.5 3.1 2.7 7 2.7s7-1.2 7-2.7" />
+  </svg>
+);
+
+export const TrophyIcon = ({ className = "size-5" }) => (
+  <svg viewBox="0 0 24 24" {...stroke} className={className} aria-hidden="true">
+    <path d="M7 3.5h10v6.5a5 5 0 0 1-10 0V3.5z" />
+    <path d="M7 5.5H4.2c-.4 0-.7.3-.7.7 0 2.3 1.6 4.1 3.7 4.4" />
+    <path d="M17 5.5h2.8c.4 0 .7.3.7.7 0 2.3-1.6 4.1-3.7 4.4" />
+    <path d="M12 15v3.5M8.5 21h7M12 18.5c-1.6 0-2.5 1-2.7 2.5M12 18.5c1.6 0 2.5 1 2.7 2.5" />
+  </svg>
+);
+
+export const UsersIcon = ({ className = "size-5" }) => (
+  <svg viewBox="0 0 24 24" {...stroke} className={className} aria-hidden="true">
+    <circle cx="9" cy="8" r="3.4" />
+    <path d="M2.8 20c.4-3.4 3-5.5 6.2-5.5s5.8 2.1 6.2 5.5" />
+    <circle cx="16.8" cy="9.2" r="2.6" />
+    <path d="M17.6 14.6c2.3.5 3.8 2.1 4.1 4.4" />
+  </svg>
+);
+
+export const CompassIcon = ({ className = "size-5" }) => (
+  <svg viewBox="0 0 24 24" {...stroke} className={className} aria-hidden="true">
+    <circle cx="12" cy="12" r="8.7" />
+    <path d="M15.6 8.4l-2.2 5-5 2.2 2.2-5 5-2.2z" />
+  </svg>
+);
+
+export const TennisIcon = ({ className = "size-5" }) => (
+  <svg viewBox="0 0 24 24" {...stroke} className={className} aria-hidden="true">
+    <circle cx="12" cy="12" r="8.7" />
+    <path d="M5.2 6.2c3.2 2.2 3.2 9.4 0 11.6" />
+    <path d="M18.8 6.2c-3.2 2.2-3.2 9.4 0 11.6" />
+  </svg>
+);

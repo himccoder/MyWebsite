@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SectionHeading from "../components/SectionHeading";
+import { HandArrow } from "../components/Doodles";
 import { identity } from "../data/content";
 import { GitHubIcon, LinkedInIcon, ArrowIcon } from "../components/Icons";
 
@@ -11,16 +12,20 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const formData = new FormData(e.target);
+
+    // No form key configured — hand the message off to their mail client instead.
     if (!WEB3FORMS_KEY) {
-      setStatus({
-        state: "error",
-        message: `Form isn't wired up yet — email me directly at ${identity.email}`,
-      });
+      const subject = encodeURIComponent(`Portfolio message from ${formData.get("name")}`);
+      const body = encodeURIComponent(
+        `${formData.get("message")}\n\n— ${formData.get("name")} (${formData.get("email")})`
+      );
+      window.location.href = `mailto:${identity.email}?subject=${subject}&body=${body}`;
+      setStatus({ state: "success", message: "Opening your email app with the message ready to send." });
       return;
     }
 
     setStatus({ state: "sending", message: "" });
-    const formData = new FormData(e.target);
     formData.append("access_key", WEB3FORMS_KEY);
     formData.append("subject", "Portfolio contact form");
 
@@ -45,33 +50,34 @@ export default function Contact() {
   };
 
   const inputCls =
-    "w-full border border-edge bg-surface px-4 py-3 text-fog placeholder:text-mist/60 focus:border-neon focus:outline-none transition-colors";
+    "w-full rounded-lg border border-edge bg-surface px-4 py-3 text-fog placeholder:text-faint focus:border-amber focus:outline-none transition-colors";
 
   return (
-    <section id="contact" className="mx-auto max-w-6xl px-5 py-28 scroll-mt-20">
-      <SectionHeading index="05" label="Signal" title="Get In Touch" />
+    <section id="contact" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-28">
+      <SectionHeading title="Contact" />
 
       <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
         {/* direct channels */}
         <div>
-          <p className="text-lg text-fog/85 leading-relaxed max-w-sm">
-            Open to research collaborations, internships, and interesting problems.
-            Fastest way in:
+          <p className="max-w-sm text-lg leading-relaxed text-fog/85">
+            Open to research collaborations, internships and genuinely interesting problems. The
+            fastest way in:
           </p>
+          <HandArrow className="ml-4 mt-2 h-12 w-20" />
           <a
             href={`mailto:${identity.email}`}
-            className="group mt-6 inline-flex items-center gap-2 text-xl sm:text-2xl font-bold text-neon hover:text-fog transition-colors break-all"
+            className="group mt-6 inline-flex items-center gap-2 break-all text-xl font-semibold text-amber transition-colors hover:text-fog sm:text-2xl"
           >
             {identity.email}
             <ArrowIcon className="size-5 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
-          <div className="mt-8 flex gap-5">
+          <div className="mt-8 flex gap-4">
             <a href={identity.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-              className="panel p-3 text-mist hover:text-neon hover:border-neon/50 transition-colors">
+              className="panel rounded-xl p-3 text-mist transition-colors hover:border-fog/40 hover:text-fog">
               <GitHubIcon className="size-6" />
             </a>
             <a href={identity.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-              className="panel p-3 text-mist hover:text-neon hover:border-neon/50 transition-colors">
+              className="panel rounded-xl p-3 text-mist transition-colors hover:border-[#0a66c2]/50 hover:text-[#0a66c2]">
               <LinkedInIcon className="size-6" />
             </a>
           </div>
@@ -87,16 +93,15 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status.state === "sending"}
-            className="inline-flex items-center gap-2 bg-neon px-8 py-3 font-mono text-sm font-bold tracking-widest text-ink uppercase transition-all hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0"
-            style={{ clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%)" }}
+            className="inline-flex items-center gap-2 rounded-full bg-amber px-8 py-3 text-sm font-semibold text-ink transition-all hover:bg-ember hover:-translate-y-0.5 disabled:opacity-60 disabled:hover:translate-y-0"
           >
-            {status.state === "sending" ? "Sending..." : "Send it"}
+            {status.state === "sending" ? "Sending…" : "Send message"}
           </button>
 
           {status.message && (
             <p
               role="status"
-              className={`font-mono text-sm ${status.state === "success" ? "text-neon" : "text-hot"}`}
+              className={`font-mono text-sm ${status.state === "success" ? "text-amber" : "text-ember"}`}
             >
               {status.message}
             </p>

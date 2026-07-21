@@ -1,27 +1,29 @@
 import Nav from "./components/Nav";
-import Cursor from "./components/Cursor";
 import Hero from "./sections/Hero";
-import Profile from "./sections/Profile";
-import Experience from "./sections/Experience";
+import About from "./sections/About";
+import Work from "./sections/Work";
+import Research from "./sections/Research";
 import Projects from "./sections/Projects";
+import Beyond from "./sections/Beyond";
 import Skills from "./sections/Skills";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 
 export default function App() {
   return (
-    <>
-      <Cursor />
+    <div className="grain">
       <Nav />
       <main>
         <Hero />
-        <Profile />
-        <Experience />
+        <About />
+        <Work />
+        <Research />
         <Projects />
+        <Beyond />
         <Skills />
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

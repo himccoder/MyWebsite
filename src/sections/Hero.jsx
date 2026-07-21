@@ -1,161 +1,119 @@
-import { Suspense, lazy, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { identity, marquee } from "../data/content";
-import Marquee from "../components/Marquee";
-import GlitchText from "../components/GlitchText";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { identity, education } from "../data/content";
 import { ArrowIcon } from "../components/Icons";
+import HandUnderline from "../components/HandUnderline";
+import { MaskedLetters } from "../components/SplitText";
+import Magnetic from "../components/Magnetic";
 
-const BallScene = lazy(() => import("../three/BallScene"));
+const EASE_SOFT = [0.22, 1, 0.36, 1];
 
-const EASE_CUT = [0.85, 0, 0.15, 1];
+const fade = (delay = 0) => ({
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, delay, ease: EASE_SOFT },
+});
 
-function RotatingRole() {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setI((v) => (v + 1) % identity.roles.length), 2600);
-    return () => clearInterval(t);
-  }, []);
-
+/* masked arrow — slides out top-right, re-enters from bottom-left on hover */
+function SlideArrow() {
   return (
-    <span className="relative inline-block h-[1.4em] overflow-hidden align-bottom">
-      <AnimatePresence mode="popLayout" initial={false}>
-        <motion.span
-          key={identity.roles[i]}
-          initial={{ y: "110%" }}
-          animate={{ y: 0 }}
-          exit={{ y: "-110%" }}
-          transition={{ duration: 0.4, ease: EASE_CUT }}
-          className="inline-block text-neon"
-        >
-          {identity.roles[i]}
-        </motion.span>
-      </AnimatePresence>
+    <span className="relative size-4 overflow-hidden">
+      <ArrowIcon className="size-4 transition-transform duration-300 ease-out group-hover:translate-x-[150%] group-hover:-translate-y-[150%]" />
+      <ArrowIcon className="absolute inset-0 size-4 -translate-x-[150%] translate-y-[150%] transition-transform duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0" />
     </span>
   );
 }
 
-const nameLine = {
-  hidden: { clipPath: "inset(0 100% 0 0)" },
-  show: (d) => ({
-    clipPath: "inset(0 0% 0 0)",
-    transition: { duration: 0.6, delay: d, ease: EASE_CUT },
-  }),
-};
-
 export default function Hero() {
-  const [supports3d, setSupports3d] = useState(true);
-
-  useEffect(() => {
-    // skip WebGL scene for reduced-motion users
-    setSupports3d(!window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  }, []);
+  const reduced = useReducedMotion();
+  const { scrollY } = useScroll();
+  const portraitY = useTransform(scrollY, [0, 600], [0, reduced ? 0 : -36]);
 
   return (
-    <section id="top" className="relative min-h-screen flex flex-col justify-between overflow-hidden">
-      {/* background: radial neon haze + faint grid */}
-      <div aria-hidden="true" className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_70%_35%,rgba(0,229,255,0.08),transparent)]" />
-        <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(rgba(0,229,255,0.6)_1px,transparent_1px),linear-gradient(90deg,rgba(0,229,255,0.6)_1px,transparent_1px)] bg-[size:64px_64px]" />
+    <section id="top" className="relative flex min-h-screen items-center overflow-hidden">
+      {/* soft warm ambient, drifting slowly */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+        <motion.div
+          className="absolute right-[6%] top-1/3 h-[34rem] w-[34rem] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(224,125,46,0.18),transparent_65%)] blur-2xl"
+          animate={reduced ? undefined : { y: [0, -24, 0], x: [0, 14, 0] }}
+          transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
+        />
       </div>
 
-      <div className="mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 items-center gap-8 px-5 pt-28 pb-10 lg:grid-cols-[1.15fr_1fr]">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-5 pt-28 pb-16 lg:grid-cols-[1.15fr_1fr]">
         {/* ===== typography ===== */}
         <div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.4 }}
-            className="font-mono text-sm tracking-[0.35em] text-neon uppercase mb-5"
-          >
-            // Portfolio v2.0
-          </motion.p>
-
-          <h1 className="type-display type-lean text-[clamp(3.5rem,10vw,7.5rem)] text-fog">
-            <motion.span variants={nameLine} initial="hidden" animate="show" custom={0.1} className="block">
-              <GlitchText>Himnish</GlitchText>
-            </motion.span>
-            <motion.span variants={nameLine} initial="hidden" animate="show" custom={0.3} className="block">
-              <GlitchText>Chhabra</GlitchText>
-            </motion.span>
+          <h1 className="relative type-display text-[clamp(3.5rem,10vw,7rem)] leading-[0.92] text-fog">
+            <span className="block">
+              <MaskedLetters text="Himnish" delay={0.1} />
+            </span>
+            <span className="block">
+              <span className="relative inline-block italic">
+                <MaskedLetters text="Chhabra" delay={0.3} />
+                <HandUnderline className="absolute -bottom-[0.14em] left-0 h-[0.32em] w-full" delay={1.1} />
+              </span>
+            </span>
           </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.45, ease: EASE_CUT }}
-            className="mt-6 text-xl sm:text-2xl font-medium"
-          >
-            <RotatingRole />
-          </motion.p>
+          <motion.div {...fade(0.4)} className="mt-10 flex flex-wrap items-center gap-4">
+            <Magnetic>
+              <a
+                href="#work"
+                className="group inline-flex items-center gap-2 rounded-full bg-amber px-7 py-3 text-sm font-semibold text-ink transition-colors hover:bg-ember"
+              >
+                View my work
+                <SlideArrow />
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 rounded-full border border-edge px-7 py-3 text-sm text-fog transition-colors hover:border-amber hover:text-amber"
+              >
+                Get in touch
+              </a>
+            </Magnetic>
+          </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.85, duration: 0.45, ease: EASE_CUT }}
-            className="mt-3 text-mist max-w-md"
-          >
-            {identity.education}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.45, ease: EASE_CUT }}
-            className="mt-9 flex flex-wrap gap-4"
-          >
-            <a
-              href="#projects"
-              className="group inline-flex items-center gap-2 bg-neon px-6 py-3 font-mono text-sm font-bold tracking-widest text-ink uppercase transition-transform hover:-translate-y-0.5"
-              style={{ clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%)" }}
-            >
-              See the work
-              <ArrowIcon className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 border border-edge px-6 py-3 font-mono text-sm tracking-widest text-fog uppercase transition-colors hover:border-neon hover:text-neon"
-            >
-              Contact
-            </a>
+          {/* education logo lockup */}
+          <motion.div {...fade(0.55)} className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-6">
+            {education.map((e) => (
+              <div key={e.short} className="flex items-center gap-3.5">
+                <span className="flex size-12 shrink-0 items-center justify-center">
+                  <img src={e.logo} alt={e.school} className="max-h-12 max-w-12 object-contain" />
+                </span>
+                <div className="leading-snug">
+                  <p className="text-[15px] font-semibold text-fog">{e.short}</p>
+                  <p className="text-xs text-mist">{e.degree}</p>
+                  {e.award && <p className="mt-1 text-xs font-medium text-amber">{e.award}</p>}
+                </div>
+              </div>
+            ))}
           </motion.div>
         </div>
 
-        {/* ===== 3D tennis ball ===== */}
+        {/* ===== portrait, drifting slightly slower than the page ===== */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          className="relative h-[320px] sm:h-[420px] lg:h-[540px]"
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.25, ease: EASE_SOFT }}
+          style={{ y: portraitY }}
+          className="relative mx-auto w-full max-w-sm lg:mx-0 lg:ml-auto"
         >
-          {supports3d ? (
-            <Suspense
-              fallback={
-                <div className="flex h-full items-center justify-center">
-                  <div className="size-40 rounded-full border border-neon/30 animate-pulse" />
-                </div>
-              }
-            >
-              <BallScene />
-            </Suspense>
-          ) : (
-            <div className="flex h-full items-center justify-center">
-              <div className="size-48 rounded-full border-2 border-neon/40 glow-neon" />
+          <div className="relative">
+            <div aria-hidden="true" className="absolute -inset-3 -z-10 rounded-[2rem] border border-amber/25" />
+            <div aria-hidden="true" className="absolute -right-5 -top-5 -z-10 h-28 w-28 rounded-full bg-ember/20 blur-2xl" />
+            <div className="overflow-hidden rounded-[1.75rem] border border-edge shadow-[0_20px_60px_-25px_rgba(44,34,24,0.4)]">
+              <img
+                src={identity.portrait}
+                alt="Himnish Chhabra"
+                className="aspect-[4/5] w-full object-cover"
+                style={{ objectPosition: "50% 28%" }}
+              />
             </div>
-          )}
-          <p className="absolute bottom-0 left-1/2 -translate-x-1/2 font-mono text-[10px] tracking-[0.3em] text-mist/60 uppercase whitespace-nowrap">
-            drag to spin · click to smash
-          </p>
+          </div>
+
         </motion.div>
       </div>
-
-      {/* ===== achievement ticker (replaces Awards section) ===== */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.5 }}
-      >
-        <Marquee items={marquee} />
-      </motion.div>
     </section>
   );
 }
