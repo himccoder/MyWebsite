@@ -12,7 +12,6 @@ import jsLogo from "../assets/img/logos/js.png";
 import cLogo from "../assets/img/logos/c.png";
 
 import utradeThumb from "../assets/img/UTrade_thumbnail.png";
-import brainBoostThumb from "../assets/img/BrainBoost_Thumbnail.png";
 import ticketThumb from "../assets/img/TicketTradingimg.png";
 import neuralThumb from "../assets/img/NeuralComplete.png";
 import ticTacToeThumb from "../assets/img/electictactoeimg.jpg";
@@ -166,7 +165,7 @@ export const projects = [
     description:
       "Cognitive-training platform with clinically-grounded brain games and neurologist-ready reports.",
     stack: ["React", "Supabase", "PostgreSQL", "Gemini API"],
-    img: brainBoostThumb,
+    img: null,
     live: "https://brain-boost-eta.vercel.app/",
     badge: "Challenge Winner",
   },
@@ -236,7 +235,7 @@ export const extracurriculars = [
     org: "National-level player",
     dates: "Ongoing",
     icon: "tennis",
-    note: "Competing in national-level tournaments alongside engineering.",
+    note: "Enjoy playing tennis at a national-level",
   },
 ];
 
