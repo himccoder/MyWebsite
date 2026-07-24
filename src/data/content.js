@@ -101,7 +101,7 @@ export const research = [
     lab: "NLP Lab · UMass Amherst",
     advisor: "Prof. Katrin Erk",
     dates: "2026 — Present",
-    summary: "Studying LLMs and Transformers, focusing on model behavior and representation.",
+    summary: "Research on developing sn automated LLM evaluation pipeline for claim verification, generating normalized claim representations and benchmarking GPT, Claude, Llama, and DeepSeek using semantic similarity metrics for factual accuracy and information extraction.",
   },
   {
     role: "Research Assistant",
