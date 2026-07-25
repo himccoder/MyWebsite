@@ -12,6 +12,7 @@ import jsLogo from "../assets/img/logos/js.png";
 import cLogo from "../assets/img/logos/c.png";
 
 import utradeThumb from "../assets/img/UTrade_thumbnail.png";
+import brainBoostThumb from "../assets/img/BrainBoost_Thumbnail.png";
 import ticketThumb from "../assets/img/TicketTradingimg.png";
 import neuralThumb from "../assets/img/NeuralComplete.png";
 import ticTacToeThumb from "../assets/img/electictactoeimg.jpg";
@@ -83,7 +84,7 @@ export const work = [
     org: "Altheros Capital",
     dates: "2025",
     summary:
-      "Raised Cara.ai recommendation CTR 15% with Bayesian A/B analytics, and shipped secure telehealth video on FastAPI + AWS.",
+      "Raised Cara.ai recommendation CTR by 15% with Bayesian A/B analytics and shipped secure telehealth video on FastAPI + AWS.",
   },
   {
     role: "Software Development Intern",
@@ -101,7 +102,7 @@ export const research = [
     lab: "NLP Lab · UMass Amherst",
     advisor: "Prof. Katrin Erk",
     dates: "2026 — Present",
-    summary: "Research on developing sn automated LLM evaluation pipeline for claim verification, generating normalized claim representations and benchmarking GPT, Claude, Llama, and DeepSeek using semantic similarity metrics for factual accuracy and information extraction.",
+    summary: "Building an automated pipeline to evaluate LLMs on claim verification: generating normalized claim representations and benchmarking GPT, Claude, Llama, and DeepSeek on factual accuracy and information extraction using semantic similarity metrics.",
   },
   {
     role: "Research Assistant",
@@ -165,7 +166,7 @@ export const projects = [
     description:
       "Cognitive-training platform with clinically-grounded brain games and neurologist-ready reports.",
     stack: ["React", "Supabase", "PostgreSQL", "Gemini API"],
-    img: null,
+    img: brainBoostThumb,
     live: "https://brain-boost-eta.vercel.app/",
     badge: "Challenge Winner",
   },
@@ -235,7 +236,7 @@ export const extracurriculars = [
     org: "National-level player",
     dates: "Ongoing",
     icon: "tennis",
-    note: "Enjoy playing tennis at a national-level",
+    note: "Enjoy playing tennis at a national level.",
   },
 ];
 
